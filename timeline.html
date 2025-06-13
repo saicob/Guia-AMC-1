@@ -81,6 +81,7 @@
 
         .header.scrolled {
             background-color: rgba(255, 255, 255, 0.95);
+            -webkit-backdrop-filter: blur(8px);
             backdrop-filter: blur(8px);
             color: var(--red-700);
             box-shadow: var(--shadow-sm);
@@ -206,6 +207,84 @@
 
         .btn:hover {
             background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Sabías que... */
+        .sabias-que {
+            background: var(--gray-100);
+            border-left: 6px solid var(--red-700);
+            margin: 2rem 0;
+            padding: 2rem 1.5rem;
+            box-shadow: var(--shadow-sm);
+            border-radius: 0.5rem;
+            text-align: center;
+        }
+
+        .sabias-que h2 {
+            color: var(--red-700);
+            margin-bottom: 0.5rem;
+        }
+
+        .sabias-que p {
+            color: var(--gray-700);
+            font-size: 1.15rem;
+        }
+
+        /* Aplicaciones cotidianas */
+        .aplicaciones {
+            background: var(--white);
+            padding: 2.5rem 0 1.5rem 0;
+        }
+
+        .aplicaciones-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            align-items: stretch;
+        }
+
+        .aplicacion {
+            background: var(--gray-50);
+            border-radius: 0.5rem;
+            box-shadow: var(--shadow-sm);
+            padding: 1.5rem 1rem;
+            width: 180px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .aplicacion:hover {
+            transform: translateY(-6px) scale(1.04);
+            box-shadow: var(--shadow-md);
+        }
+
+        .aplicacion img {
+            width: 64px;
+            height: 64px;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            border-radius: 0.5rem;
+        }
+
+        .aplicacion h3 {
+            color: var(--red-700);
+            font-size: 1rem;
+            margin: 0;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .aplicaciones-grid {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .aplicacion {
+                width: 100%;
+            }
         }
 
         /* Footer */
@@ -516,7 +595,7 @@
             color: var(--amd-red);
         }
 
-        /* Estilos para dispositivos móviles */
+        /* Responsive Styles */
         @media (max-width: 768px) {
             .timeline-content::before {
                 left: 30px;
@@ -620,6 +699,50 @@
             <h1>Línea de Tiempo de Microprocesadores</h1>
             <p>Descubre la fascinante evolución de los microprocesadores Intel y AMD a lo largo de las décadas.</p>
             <a href="#timeline" class="btn">Ver línea de tiempo</a>
+        </div>
+    </section>
+
+    <!-- Sabías que... -->
+    <section class="sabias-que">
+        <div class="container">
+            <h2>¿Sabías que...?</h2>
+            <p>Los microprocesadores están presentes en casi todos los dispositivos electrónicos que usamos a diario, desde tu smartphone hasta los automóviles y equipos médicos. ¡Son el cerebro de la tecnología moderna!</p>
+        </div>
+    </section>
+
+    <!-- Aplicaciones cotidianas -->
+    <section class="aplicaciones">
+        <div class="container aplicaciones-grid">
+            <div class="aplicacion">
+                <a href="educacion-robotica.html">
+                    <img src="images/arduino.jpg" alt="Arduino">
+                    <h3>Educación y Robótica</h3>
+                </a>
+            </div>
+            <div class="aplicacion">
+                <a href="electrodomesticos.html">
+                    <img src="images/micro.jpg" alt="Microprocesador">
+                    <h3>Electrodomésticos</h3>
+                </a>
+            </div>
+            <div class="aplicacion">
+                <a href="computadoras.html">
+                    <img src="images/inteli7.jpg" alt="Computadora">
+                    <h3>Computadoras y Laptops</h3>
+                </a>
+            </div>
+            <div class="aplicacion">
+                <a href="automoviles.html">
+                    <img src="images/amd.jpg" alt="Automóvil">
+                    <h3>Automóviles</h3>
+                </a>
+            </div>
+            <div class="aplicacion">
+                <a href="medicina.html">
+                    <img src="images/depurador.jpg" alt="Medicina">
+                    <h3>Medicina</h3>
+                </a>
+            </div>
         </div>
     </section>
 

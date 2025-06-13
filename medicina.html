@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microprocesadores en Medicina</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">EduTec Electrónica</a>
+        </div>
+    </header>
+    <main class="container main-content">
+        <h1>Microprocesadores en Medicina</h1>
+        <p>En el campo de la medicina, los microprocesadores son fundamentales para el funcionamiento de una amplia variedad de equipos médicos modernos. Gracias a ellos, es posible realizar diagnósticos precisos, monitorear pacientes en tiempo real y automatizar tratamientos, mejorando la calidad y seguridad de la atención médica.</p>
+        <div class="medicina-grid">
+            <div class="med-aparato">
+                <img src="images/micromedico.jpg" alt="Microprocesador en equipo médico" class="img-central">
+                <h2>Equipos de Diagnóstico</h2>
+                <p>Los microprocesadores controlan resonancias magnéticas, tomógrafos y ecógrafos, permitiendo procesar imágenes complejas y ofrecer resultados rápidos y detallados.</p>
+            </div>
+            <div class="med-aparato">
+                <img src="images/Monitor_paciente.jpg" alt="Monitor de signos vitales" class="img-central">
+                <h2>Monitoreo de Pacientes</h2>
+                <p>Dispositivos como monitores de signos vitales y bombas de infusión utilizan microprocesadores para medir y regular parámetros críticos, alertando al personal médico ante cualquier anomalía.</p>
+            </div>
+            <div class="med-aparato">
+                <img src="images/dispositivosimplantares.jpg" alt="Marcapasos" class="img-central">
+                <h2>Dispositivos Implantables</h2>
+                <p>Marcapasos y desfibriladores implantables dependen de microprocesadores para regular el ritmo cardíaco y responder automáticamente a emergencias.</p>
+            </div>
+            <div class="med-aparato">
+                <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=400&q=80" alt="Robótica médica" class="img-central">
+                <h2>Robótica Médica</h2>
+                <p>Los robots quirúrgicos y sistemas de asistencia utilizan microprocesadores avanzados para realizar procedimientos de alta precisión y mínima invasión.</p>
+            </div>
+        </div>
+        <div class="botones-volver">
+            <a href="timeline.html" class="btn">Volver a la línea de tiempo</a>
+            <a href="index.html" class="btn">Volver al inicio</a>
+        </div>
+    </main>
+    <style>
+    .medicina-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 2rem;
+        margin: 2.5rem 0;
+    }
+    .med-aparato {
+        background: #f9fafb;
+        border-radius: 0.5rem;
+        box-shadow: 0 1px 3px 0 rgba(0,0,0,0.07);
+        padding: 1.5rem 1rem;
+        text-align: center;
+        transition: box-shadow 0.2s;
+    }
+    .med-aparato:hover {
+        box-shadow: 0 4px 12px 0 rgba(0,0,0,0.12);
+    }
+    .med-aparato img {
+        width: 120px;
+        height: 120px;
+        object-fit: cover;
+        border-radius: 0.5rem;
+        margin-bottom: 1rem;
+    }
+    .med-aparato h2 {
+        color: #c62828;
+        font-size: 1.15rem;
+        margin-bottom: 0.5rem;
+    }
+    .med-aparato p {
+        color: #374151;
+        font-size: 1rem;
+    }
+    .botones-volver {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        margin-top: 2rem;
+    }
+    .btn {
+        background-color: #c62828;
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: 0.5rem;
+        text-decoration: none;
+        font-weight: 500;
+        transition: background-color 0.3s;
+    }
+    .btn:hover {
+        background-color: #b71c1c;
+    }
+    </style>
+</body>
+</html>
