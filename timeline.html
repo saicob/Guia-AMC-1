@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduTec Electrónica - Línea de Tiempo de Microprocesadores</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Base Styles */
+        :root {
+            --red-700: #c62828;
+            --red-800: #991b1b;
+            --red-600: #dc2626;
+            --red-500: #ef4444;
+            --red-50: #fef2f2;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --white: #ffffff;
+            --intel-blue: #0071c5;
+            --amd-red: #ed1c24;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 70px;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.5;
+            color: var(--gray-800);
+            background-color: var(--gray-50);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Header Styles */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background-color: var(--red-700);
+            color: var(--white);
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            color: var(--red-700);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .desktop-menu {
+            display: none;
+        }
+
+        .nav-link {
+            margin-left: 1.5rem;
+            font-weight: 500;
+            transition: opacity 0.2s ease;
+        }
+
+        .nav-link:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+
+        .mobile-menu-btn {
+            background: none;
+            border: none;
+            color: inherit;
+            cursor: pointer;
+            padding: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background-color: var(--white);
+            box-shadow: var(--shadow-md);
+            padding: 1rem;
+            flex-direction: column;
+        }
+
+        .mobile-menu.active {
+            display: flex;
+        }
+
+        .mobile-nav-link {
+            color: var(--red-700);
+            padding: 0.75rem 1rem;
+            display: block;
+            border-radius: 0.375rem;
+            transition: background-color 0.2s ease;
+        }
+
+        .mobile-nav-link:hover {
+            background-color: var(--red-50);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            background-color: var(--red-700);
+            color: var(--white);
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://placehold.co/1200x600/c62828/ffffff?text=Línea+de+Tiempo');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .hero h1 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            border: 1px solid var(--white);
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--gray-100);
+            border-top: 1px solid var(--gray-200);
+            padding: 3rem 0 1.5rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .footer-column h3 {
+            font-size: 1.125rem;
+            color: var(--red-700);
+            margin-bottom: 1rem;
+        }
+
+        .footer-column p {
+            color: var(--gray-600);
+            margin-bottom: 1rem;
+        }
+
+        .footer-column ul {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .footer-column ul a {
+            color: var(--gray-600);
+            transition: color 0.2s ease;
+        }
+
+        .footer-column ul a:hover {
+            color: var(--red-700);
+        }
+
+        .footer-column .btn {
+            background-color: var(--red-700);
+            border-color: var(--red-700);
+            color: var(--white);
+            margin-top: 1rem;
+        }
+
+        .footer-column .btn:hover {
+            background-color: var(--red-800);
+        }
+
+        .footer-bottom {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--gray-200);
+            text-align: center;
+            color: var(--gray-500);
+        }
+
+        /* Responsive Styles for Header and Footer */
+        @media (min-width: 768px) {
+            .desktop-menu {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .footer-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* Estilos específicos para la línea de tiempo */
+        .timeline-section {
+            padding: 4rem 0;
+            background-color: var(--white);
+        }
+
+        .timeline-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .timeline-header h2 {
+            font-size: 2rem;
+            color: var(--red-700);
+            margin-bottom: 1rem;
+        }
+
+        .timeline-header p {
+            font-size: 1.1rem;
+            color: var(--gray-600);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .timeline-tab {
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-tab.active {
+            color: var(--red-700);
+        }
+
+        .timeline-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background-color: var(--red-700);
+        }
+
+        .timeline-tab:hover {
+            color: var(--red-600);
+        }
+
+        .timeline-content {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            background-color: var(--gray-200);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            margin-bottom: 2rem;
+            position: relative;
+            width: 100%;
+            display: flex;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-item.left {
+            justify-content: flex-start;
+        }
+
+        .timeline-item.right {
+            justify-content: flex-end;
+        }
+
+        .timeline-item-content {
+            width: calc(50% - 30px);
+            padding: 1.5rem;
+            background-color: var(--white);
+            border-radius: 0.5rem;
+            box-shadow: var(--shadow);
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .timeline-item-content:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .timeline-item.left .timeline-item-content::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            right: -10px;
+            width: 20px;
+            height: 20px;
+            background-color: var(--white);
+            transform: rotate(45deg);
+            box-shadow: 2px -2px 2px rgba(0, 0, 0, 0.05);
+        }
+
+        .timeline-item.right .timeline-item-content::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: -10px;
+            width: 20px;
+            height: 20px;
+            background-color: var(--white);
+            transform: rotate(45deg);
+            box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.05);
+        }
+
+        .timeline-dot {
+            position: absolute;
+            top: 20px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: var(--red-700);
+            border: 4px solid var(--white);
+            box-shadow: var(--shadow-sm);
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+
+        .timeline-item.intel .timeline-dot {
+            background-color: var(--intel-blue);
+        }
+
+        .timeline-item.amd .timeline-dot {
+            background-color: var(--amd-red);
+        }
+
+        .timeline-year {
+            position: absolute;
+            top: 50px;
+            font-weight: 700;
+            color: var(--gray-500);
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .timeline-item-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-item-header img {
+            width: 40px;
+            height: 40px;
+            margin-right: 1rem;
+            object-fit: contain;
+        }
+
+        .timeline-item-header h3 {
+            font-size: 1.25rem;
+            color: var(--gray-800);
+            margin: 0;
+        }
+
+        .timeline-item.intel .timeline-item-header h3 {
+            color: var(--intel-blue);
+        }
+
+        .timeline-item.amd .timeline-item-header h3 {
+            color: var(--amd-red);
+        }
+
+        .timeline-item-body p {
+            color: var(--gray-600);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item-body ul {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+            margin-top: 0.5rem;
+            color: var(--gray-600);
+        }
+
+        .timeline-item-body ul li {
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-item-footer {
+            margin-top: 1rem;
+            font-size: 0.875rem;
+            color: var(--gray-500);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .timeline-item-footer .badge {
+            padding: 0.25rem 0.5rem;
+            border-radius: 9999px;
+            font-weight: 500;
+            font-size: 0.75rem;
+        }
+
+        .timeline-item.intel .timeline-item-footer .badge {
+            background-color: rgba(0, 113, 197, 0.1);
+            color: var(--intel-blue);
+        }
+
+        .timeline-item.amd .timeline-item-footer .badge {
+            background-color: rgba(237, 28, 36, 0.1);
+            color: var(--amd-red);
+        }
+
+        /* Estilos para dispositivos móviles */
+        @media (max-width: 768px) {
+            .timeline-content::before {
+                left: 30px;
+            }
+
+            .timeline-item {
+                justify-content: flex-start;
+                padding-left: 60px;
+            }
+
+            .timeline-item-content {
+                width: 100%;
+            }
+
+            .timeline-dot {
+                left: 30px;
+                transform: none;
+            }
+
+            .timeline-year {
+                left: 30px;
+                transform: none;
+                top: 20px;
+                font-size: 0.75rem;
+                background-color: var(--white);
+                padding: 0.25rem 0.5rem;
+                border-radius: 9999px;
+                box-shadow: var(--shadow-sm);
+            }
+
+            .timeline-item.left .timeline-item-content::after,
+            .timeline-item.right .timeline-item-content::after {
+                left: -10px;
+                right: auto;
+                top: 20px;
+            }
+        }
+
+        /* Animaciones */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .timeline-item {
+            opacity: 0;
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        .timeline-item.visible {
+            opacity: 1;
+        }
+
+        .timeline-content[data-tab="intel"] .timeline-item.amd,
+        .timeline-content[data-tab="amd"] .timeline-item.intel,
+        .timeline-content[data-tab="all"] .timeline-item {
+            display: flex;
+        }
+
+        .timeline-content[data-tab="intel"] .timeline-item.amd,
+        .timeline-content[data-tab="amd"] .timeline-item.intel {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header" class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">EduTec Electrónica</a>
+            <nav class="desktop-menu">
+                <a href="index.html#ensamblador" class="nav-link">Lenguaje Ensamblador</a>
+                <a href="index.html#microprocesadores" class="nav-link">Microprocesadores</a>
+                <a href="index.html#microcontroladores" class="nav-link">Microcontroladores</a>
+            </nav>
+            <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Menú de navegación">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="4" x2="20" y1="12" y2="12"></line>
+                    <line x1="4" x2="20" y1="6" y2="6"></line>
+                    <line x1="4" x2="20" y1="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="mobile-menu">
+            <a href="index.html#ensamblador" class="mobile-nav-link">Lenguaje Ensamblador</a>
+            <a href="index.html#microprocesadores" class="mobile-nav-link">Microprocesadores</a>
+            <a href="index.html#microcontroladores" class="mobile-nav-link">Microcontroladores</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <h1>Línea de Tiempo de Microprocesadores</h1>
+            <p>Descubre la fascinante evolución de los microprocesadores Intel y AMD a lo largo de las décadas.</p>
+            <a href="#timeline" class="btn">Ver línea de tiempo</a>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section id="timeline" class="timeline-section">
+        <div class="container">
+            <div class="timeline-header">
+                <h2>Evolución de los Microprocesadores</h2>
+                <p>Descubre la fascinante historia y evolución de los microprocesadores Intel y AMD a lo largo de las décadas, desde sus inicios hasta la actualidad.</p>
+            </div>
+
+            <div class="timeline-tabs">
+                <div class="timeline-tab active" data-tab="all">Todos</div>
+                <div class="timeline-tab" data-tab="intel">Intel</div>
+                <div class="timeline-tab" data-tab="amd">AMD</div>
+            </div>
+
+            <div class="timeline-content" data-tab="all">
+                <!-- 1971 - Intel 4004 -->
+                <div class="timeline-item left intel" data-year="1971">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-year">1971</div>
+                    <div class="timeline-item-content">
+                        <div class="timeline-item-header">
+                            <img src="https://placehold.co/100x100/0071c5/ffffff?text=Intel" alt="Logo Intel">
+                            <h3>Intel 4004</h3>
+                        </div>
+                        <div class="timeline-item-body">
+                            <p>El primer microprocesador comercial de un solo chip del mundo, desarrollado para una calculadora japonesa.</p>
+                            <ul>
+                                <li>Velocidad: 740 kHz</li>
+                                <li>Transistores: 2,300</li>
+                                <li>Proceso de fabricación: 10 μm</li>
+                            </ul>
+                        </div>
+                        <div class="timeline-item-footer">
+                            <span class="badge">Primer microprocesador</span>
+                            <span>4 bits</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 1974 - Intel 8080 -->
+                <div class="timeline-item right intel" data-year="1974">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-year">1974</div>
+                    <div class="timeline-item-content">
+                        <div class="timeline-item-header">
+                            <img src="https://placehold.co/100x100/0071c5/ffffff?text=Intel" alt="Logo Intel">
+                            <h3>Intel 8080</h3>
+                        </div>
+                        <div class="timeline-item-body">
+                            <p>Uno de los primeros microprocesadores de 8 bits ampliamente adoptados, sentó las bases para la revolución de las computadoras personales.</p>
+                            <ul>
+                                <li>Velocidad: 2 MHz</li>
+                                <li>Transistores: 6,000</li>
+                                <li>Proceso de fabricación: 6 μm</li>
+                            </ul>
+                        </div>
+                        <div class="timeline-item-footer">
+                            <span class="badge">Revolución PC</span>
+                            <span>8 bits</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 1979 - AMD Am2900 -->
+                <div class="timeline-item left amd" data-year="1979">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-year">1979</div>
+                    <div class="timeline-item-content">
+                        <div class="timeline-item-header">
+                            <img src="https://placehold.co/100x100/ed1c24/ffffff?text=AMD" alt="Logo AMD">
+                            <h3>AMD Am2900</h3>
+                        </div>
+                        <div class="timeline-item-body">
+                            <p>Familia de circuitos integrados bipolares que AMD desarrolló para crear CPUs personalizadas.</p>
+                            <ul>
+                                <li>Tecnología: Bipolar</li>
+                                <li>Aplicación: Minicomputadoras y sistemas embebidos</li>
+                                <li>Característica: Diseño modular</li>
+                            </ul>
+                        </div>
+                        <div class="timeline-item-footer">
+                            <span class="badge">Primeros pasos</span>
+                            <span>4 bits</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 1982 - Intel 80286 -->
+                <div class="timeline-item right intel" data-year="1982">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-year">1982</div>
+                    <div class="timeline-item-content">
+                        <div class="timeline-item-header">
+                            <img src="https://placehold.co/100x100/0071c5/ffffff?text=Intel" alt="Logo Intel">
+                            <h3>Intel 80286</h3>
+                        </div>
+                        <div class="timeline-item-body">
+                            <p>Microprocesador de 16 bits que impulsó la segunda generación de computadoras personales IBM PC AT.</p>
+                            <ul>
+                                <li>Velocidad: 6-12.5 MHz</li>
+                                <li>Transistores: 134,000</li>
+                                <li>Proceso de fabricación: 1.5 μm</li>
+                            </ul>
+                        </div>
+                        <div class="timeline-item-footer">
+                            <span class="badge">Era PC AT</span>
+                            <span>16 bits</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 1985 - Intel 80386 -->
+                <div class="timeline-item left intel" data-year="1985">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-year">1985</div>
+                    <div class="timeline-item-content">
+                        <div class="timeline-item-header">
+                            <img src="https://placehold.co/100x100/0071c5/ffffff?text=Intel" alt="Logo Intel">
+                            <h3>Intel 80386</h3>
+                        </div>
+                        <div class="timeline-item-body">
+                            <p>Primer procesador de 32 bits de Intel, introdujo la multitarea y la memoria virtual.</p>
+                            <ul>
+                                <li>Velocidad: 16-33 MHz</li>
+                                <li>Transistores: 275,000</li>
+                                <li>Proceso de fabricación: 1.0 μm</li>
+                            </ul>
+                        </div>
+                        <div class="timeline-item-footer">
+                            <span class="badge">Arquitectura x86</span>
+                            <span>32 bits</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 1991 - AMD Am386 -->
+                <div class="timeline-item right amd" data-year="1991">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-year">1991</div>
+                    <div class="timeline-item-content">
+                        <div class="timeline-item-header">
+                            <img src="https://placehold.co/100x100/ed1c24/ffffff?text=AMD" alt="Logo AMD">
+                            <h3>AMD Am386</h3>
+                        </div>
+                        <div class="timeline-item-body">
+                            <p>Primera CPU compatible con x86 de AMD, que competía directamente con el Intel 80386.</p>
+                            <ul>
+                                <li>Velocidad: 40 MHz</li>
+                                <li>Compatible con software x86</li>
+                                <li>Mejor rendimiento que el Intel 386</li>
+                            </ul>
+                        </div>
+                        <div class="timeline-item-footer">
+                            <span class="badge">Competencia x86</span>
+                            <span>32 bits</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 1993 - Intel Pentium -->
+                <div class="timeline-item left intel" data-year="1993">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-year">1993</div>
+                    <div class="timeline-item-content">
+                        <div class="timeline-item-header">
+                            <img src="https://placehold.co/100x100/0071c5/ffffff?text=Intel" alt="Logo Intel">
+                            <h3>Intel Pentium</h3>
+                        </div>
+                        <div class="timeline-item-body">
+                            <p>Primer procesador de la familia Pentium, con arquitectura superescalar y bus de datos de 64 bits.</p>
+                            <ul>
+                                <li>Velocidad: 60-66 MHz</li>
+                                <li>Transistores: 3.1 millones</li>
+                                <li>Proceso de fabricación: 0.8 μm</li>
+                            </ul>
+                        </div>
+                        <div class="timeline-item-footer">
+                            <span class="badge">Era Pentium</span>
+                            <span>32 bits</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 1999 - AMD Athlon -->
+                <div class="timeline-item right amd" data-year="1999">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-year">1999</div>
+                    <div class="timeline-item-content">
+                        <div class="timeline-item-header">
+                            <img src="https://placehold.co/100x100/ed1c24/ffffff?text=AMD" alt="Logo AMD">
+                            <h3>AMD Athlon</h3>
+                        </div>
+                        <div class="timeline-item-body">
+                            <p>Primer procesador de AMD que superó a Intel en rendimiento, con arquitectura K7.</p>
+                            <ul>
+                                <li>Velocidad: 500-700 MHz</li>
+                                <li>Bus frontal: 200 MHz</li>
+                                <li>Proceso de fabricación: 0.25 μm</li>
+                            </ul>
+                        </div>
+                        <div class="timeline-item-footer">
+                            <span class="badge">Competencia directa</span>
+                            <span>32 bits</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2003 - AMD Athlon 64 -->
+                <div class="timeline-item left amd" data-year="2003">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-year">2003</div>
+                    <div class="timeline-item-content">
+                        <div class="timeline-item-header">
+                            <img src="https://placehold.co/100x100/ed1c24/ffffff?text=AMD" alt="Logo AMD">
+                            <h3>AMD Athlon 64</h3>
+                        </div>
+                        <div class="timeline-item-body">
+                            <p>Primer procesador de 64 bits para consumidores, con arquitectura AMD64 (x86-64).</p>
+                            <ul>
+                                <li>Velocidad: 1.8-2.2 GHz</li>
+                                <li>Controlador de memoria integrado</li>
+                                <li>Proceso de fabricación: 0.13 μm</li>
+                            </ul>
+                        </div>
+                        <div class="timeline-item-footer">
+                            <span class="badge">Revolución 64 bits</span>
+                            <span>64 bits</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2006 - Intel Core 2 Duo -->
+                <div class="timeline-item right intel" data-year="2006">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-year">2006</div>
+                    <div class="timeline-item-content">
+                        <div class="timeline-item-header">
+                            <img src="https://placehold.co/100x100/0071c5/ffffff?text=Intel" alt="Logo Intel">
+                            <h3>Intel Core 2 Duo</h3>
+                        </div>
+                        <div class="timeline-item-body">
+                            <p>Procesador de doble núcleo basado en la microarquitectura Core, con mejor rendimiento y eficiencia energética.</p>
+                            <ul>
+                                <li>Velocidad: 1.8-3.0 GHz</li>
+                                <li>Transistores: 291 millones</li>
+                                <li>Proceso de fabricación: 65 nm</li>
+                            </ul>
+                        </div>
+                        <div class="timeline-item-footer">
+                            <span class="badge">Era multinúcleo</span>
+                            <span>64 bits</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2011 - AMD FX -->
+                <div class="timeline-item left amd" data-year="2011">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-year">2011</div>
+                    <div class="timeline-item-content">
+                        <div class="timeline-item-header">
+                            <img src="https://placehold.co/100x100/ed1c24/ffffff?text=AMD" alt="Logo AMD">
+                            <h3>AMD FX</h3>
+                        </div>
+                        <div class="timeline-item-body">
+                            <p>Procesadores basados en la arquitectura Bulldozer, con hasta 8 núcleos.</p>
+                            <ul>
+                                <li>Velocidad: 3.6-4.7 GHz</li>
+                                <li>Hasta 8 núcleos físicos</li>
+                                <li>Proceso de fabricación: 32 nm</li>
+                            </ul>
+                        </div>
+                        <div class="timeline-item-footer">
+                            <span class="badge">Arquitectura Bulldozer</span>
+                            <span>64 bits</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2017 - AMD Ryzen -->
+                <div class="timeline-item right amd" data-year="2017">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-year">2017</div>
+                    <div class="timeline-item-content">
+                        <div class="timeline-item-header">
+                            <img src="https://placehold.co/100x100/ed1c24/ffffff?text=AMD" alt="Logo AMD">
+                            <h3>AMD Ryzen</h3>
+                        </div>
+                        <div class="timeline-item-body">
+                            <p>Procesadores basados en la arquitectura Zen, que devolvieron a AMD a la competitividad de alto rendimiento.</p>
+                            <ul>
+                                <li>Hasta 8 núcleos y 16 hilos</li>
+                                <li>IPC mejorado en un 52%</li>
+                                <li>Proceso de fabricación: 14 nm</li>
+                            </ul>
+                        </div>
+                        <div class="timeline-item-footer">
+                            <span class="badge">Arquitectura Zen</span>
+                            <span>64 bits</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2020 - Intel Core 11th Gen -->
+                <div class="timeline-item left intel" data-year="2020">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-year">2020</div>
+                    <div class="timeline-item-content">
+                        <div class="timeline-item-header">
+                            <img src="https://placehold.co/100x100/0071c5/ffffff?text=Intel" alt="Logo Intel">
+                            <h3>Intel Core 11th Gen</h3>
+                        </div>
+                        <div class="timeline-item-body">
+                            <p>Procesadores basados en la arquitectura Tiger Lake con gráficos Intel Xe integrados.</p>
+                            <ul>
+                                <li>Hasta 8 núcleos y 16 hilos</li>
+                                <li>Gráficos Intel Xe</li>
+                                <li>Proceso de fabricación: 10 nm SuperFin</li>
+                            </ul>
+                        </div>
+                        <div class="timeline-item-footer">
+                            <span class="badge">Tiger Lake</span>
+                            <span>64 bits</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2022 - AMD Ryzen 7000 -->
+                <div class="timeline-item right amd" data-year="2022">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-year">2022</div>
+                    <div class="timeline-item-content">
+                        <div class="timeline-item-header">
+                            <img src="https://placehold.co/100x100/ed1c24/ffffff?text=AMD" alt="Logo AMD">
+                            <h3>AMD Ryzen 7000</h3>
+                        </div>
+                        <div class="timeline-item-body">
+                            <p>Procesadores basados en la arquitectura Zen 4 con soporte para PCIe 5.0 y DDR5.</p>
+                            <ul>
+                                <li>Hasta 16 núcleos y 32 hilos</li>
+                                <li>Frecuencias de hasta 5.7 GHz</li>
+                                <li>Proceso de fabricación: 5 nm</li>
+                            </ul>
+                        </div>
+                        <div class="timeline-item-footer">
+                            <span class="badge">Arquitectura Zen 4</span>
+                            <span>64 bits</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2023 - Intel Core 13th Gen -->
+                <div class="timeline-item left intel" data-year="2023">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-year">2023</div>
+                    <div class="timeline-item-content">
+                        <div class="timeline-item-header">
+                            <img src="https://placehold.co/100x100/0071c5/ffffff?text=Intel" alt="Logo Intel">
+                            <h3>Intel Core 13th Gen</h3>
+                        </div>
+                        <div class="timeline-item-body">
+                            <p>Procesadores Raptor Lake con arquitectura híbrida de núcleos P (rendimiento) y E (eficiencia).</p>
+                            <ul>
+                                <li>Hasta 24 núcleos (8P + 16E) y 32 hilos</li>
+                                <li>Frecuencias de hasta 5.8 GHz</li>
+                                <li>Proceso de fabricación: Intel 7 (10 nm)</li>
+                            </ul>
+                        </div>
+                        <div class="timeline-item-footer">
+                            <span class="badge">Raptor Lake</span>
+                            <span>64 bits</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>EduTec Electrónica</h3>
+                    <p>Plataforma educativa dedicada a la enseñanza de electrónica, microprocesadores y lenguaje ensamblador.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Enlaces rápidos</h3>
+                    <ul>
+                        <li><a href="index.html#ensamblador">Lenguaje Ensamblador</a></li>
+                        <li><a href="index.html#microprocesadores">Microprocesadores</a></li>
+                        <li><a href="index.html#microcontroladores">Microcontroladores</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contacto</h3>
+                    <p>¿Tienes preguntas o sugerencias? No dudes en contactarnos.</p>
+                    <a href="mailto:contacto@edutec.com" class="btn">Contáctanos</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year"></span> EduTec - Contenido Educativo</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Variables
+            const header = document.getElementById('header');
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+            const timelineTabs = document.querySelectorAll('.timeline-tab');
+            const timelineContent = document.querySelector('.timeline-content');
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            const currentYearSpan = document.getElementById('current-year');
+            
+            // Set current year in footer
+            currentYearSpan.textContent = new Date().getFullYear();
+            
+            // Header scroll effect
+            function handleScroll() {
+                if (window.scrollY > 10) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+                
+                // Check for timeline items in viewport
+                checkItemsInView();
+            }
+            
+            // Mobile menu toggle
+            function toggleMobileMenu() {
+                mobileMenu.classList.toggle('active');
+                
+                // Change menu icon based on state
+                const svg = mobileMenuBtn.querySelector('svg');
+                if (mobileMenu.classList.contains('active')) {
+                    svg.innerHTML = `
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    `;
+                } else {
+                    svg.innerHTML = `
+                        <line x1="4" x2="20" y1="12" y2="12"></line>
+                        <line x1="4" x2="20" y1="6" y2="6"></line>
+                        <line x1="4" x2="20" y1="18" y2="18"></line>
+                    `;
+                }
+            }
+            
+            // Close mobile menu when clicking a link
+            function closeMobileMenu() {
+                mobileMenu.classList.remove('active');
+                const svg = mobileMenuBtn.querySelector('svg');
+                svg.innerHTML = `
+                    <line x1="4" x2="20" y1="12" y2="12"></line>
+                    <line x1="4" x2="20" y1="6" y2="6"></line>
+                    <line x1="4" x2="20" y1="18" y2="18"></line>
+                `;
+            }
+            
+            // Check if element is in viewport
+            function isInViewport(element) {
+                const rect = element.getBoundingClientRect();
+                return (
+                    rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.85 &&
+                    rect.bottom >= 0
+                );
+            }
+            
+            // Check which timeline items are in viewport and animate them
+            function checkItemsInView() {
+                timelineItems.forEach(item => {
+                    if (isInViewport(item)) {
+                        item.classList.add('visible');
+                    }
+                });
+            }
+            
+            // Función para cambiar de pestaña
+            function changeTab(tabId) {
+                // Actualizar clases activas en pestañas
+                timelineTabs.forEach(tab => {
+                    if (tab.dataset.tab === tabId) {
+                        tab.classList.add('active');
+                    } else {
+                        tab.classList.remove('active');
+                    }
+                });
+                
+                // Actualizar contenido visible
+                timelineContent.dataset.tab = tabId;
+                
+                // Reiniciar animaciones
+                timelineItems.forEach((item, index) => {
+                    item.style.animationDelay = `${index * 0.2}s`;
+                    item.classList.remove('visible');
+                    void item.offsetWidth; // Forzar reflow
+                    item.classList.add('visible');
+                });
+            }
+            
+            // Smooth scroll for anchor links
+            function smoothScroll(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                
+                // Check if the link is to another page
+                if (targetId.includes('.html')) {
+                    window.location.href = targetId;
+                    return;
+                }
+                
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    const offsetTop = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                    
+                    window.scrollTo({
+                        top: offsetTop - 70, // Adjust for header height
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    closeMobileMenu();
+                }
+            }
+            
+            // Event listeners
+            window.addEventListener('scroll', handleScroll);
+            mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+            
+            // Add smooth scroll to all anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', smoothScroll);
+            });
+            
+            // Close mobile menu when clicking mobile nav links
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', closeMobileMenu);
+            });
+            
+            // Event listeners para pestañas de la línea de tiempo
+            timelineTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    changeTab(this.dataset.tab);
+                });
+            });
+            
+            // Inicializar animaciones
+            timelineItems.forEach((item, index) => {
+                item.style.animationDelay = `${index * 0.2}s`;
+            });
+            
+            // Initial check for items in viewport
+            checkItemsInView();
+            
+            // Initial header state check
+            handleScroll();
+        });
+    </script>
+</body>
+</html>

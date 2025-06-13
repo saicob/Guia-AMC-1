@@ -1,0 +1,405 @@
+<!-- FILE: index.html -->
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía de AMC 1</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Header -->
+    <header id="header" class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">Guía de AMC 1</a>
+            <nav class="desktop-menu">
+                <a href="#ensamblador" class="nav-link">Lenguaje Ensamblador</a>
+                <a href="#microprocesadores" class="nav-link">Microprocesadores</a>
+                <a href="#microcontroladores" class="nav-link">Microcontroladores</a>
+                <a href="laptops.html" class="nav-link">Recomendación de Laptops</a>
+            </nav>
+            <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Menú móvil">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="4" x2="20" y1="12" y2="12"></line>
+                    <line x1="4" x2="20" y1="6" y2="6"></line>
+                    <line x1="4" x2="20" y1="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="mobile-menu">
+            <a href="#ensamblador" class="mobile-nav-link">Lenguaje Ensamblador</a>
+            <a href="#microprocesadores" class="mobile-nav-link">Microprocesadores</a>
+            <a href="#microcontroladores" class="mobile-nav-link">Microcontroladores</a>
+            <a href="laptops.html" class="mobile-nav-link">Recomendación de Laptops</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <h1>Educación Digital en Electrónica</h1>
+            <p>Explora conceptos clave de arquitectura de máquina y obtén recomendaciones de hardware adecuadas a tus
+                proyectos.</p>
+        </div>
+    </section>
+    
+    <!-- Microprocesadores -->
+    <section id="microprocesadores" class="category-section">
+        <h2>Microprocesadores</h2>
+        <div class="cards-grid">
+            <!-- Características generales -->
+            <div class="card" data-aos="fade-up">
+                <div class="card-image">
+                    <img src="images/inteli7.jpg" alt="Características CPU">
+                </div>
+                <div class="card-header">
+                    <h3>¿Qué hace a un CPU moderno?</h3>
+                </div>
+                <div class="card-content">
+                    <ul>
+                        <li>Múltiples núcleos y <em>threads</em> paralelos.</li>
+                        <li>Cachés L1/L2/L3 de gran tamaño.</li>
+                        <li>Instrucciones SIMD (AVX‑512, NEON).</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card" data-aos="fade-up">
+                <div class="card-image">
+                    <img src="images/inteli7.jpg" alt="Microprocesador Intel">
+                </div>
+                <div class="card-header">
+                    <h3>Intel Core i7</h3>
+                </div>
+                <div class="card-content">
+                    <p>CPU versátil de alto rendimiento para equipos de escritorio y laptops.</p>
+                    <ul>
+                        <li>Hasta 12 núcleos híbridos.</li>
+                        <li>Turbo Boost > 5&nbsp;GHz.</li>
+                        <li>Soporta DDR5 y PCIe&nbsp;5.0.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card" data-aos="fade-up">
+                <div class="card-image">
+                    <img src="images/amd.jpg" alt="Microprocesador AMD">
+                </div>
+                <div class="card-header">
+                    <h3>AMD Ryzen 7</h3>
+                </div>
+                <div class="card-content">
+                    <p>Arquitectura "Zen" con excelente relación precio/rendimiento.</p>
+                    <ul>
+                        <li>Gráficos integrados RDNA 3 (serie&nbsp;G).</li>
+                        <li>Chiplet design: mejor eficiencia térmica.</li>
+                        <li>Ideal para multitarea y creación de contenido.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Lenguaje Ensamblador -->
+    <section id="ensamblador" class="category-section">
+        <h2>Lenguaje Ensamblador</h2>
+        <div class="cards-grid">
+            <!-- Definición -->
+            <div class="card" data-aos="fade-up">
+                <div class="card-image">
+                    <img src="images/codigo.png" alt="Código ensamblador">
+                </div>
+                <div class="card-header">
+                    <h3>¿Qué es el Lenguaje Ensamblador?</h3>
+                </div>
+                <div class="card-content">
+                    <p>Es un <strong>lenguaje de bajo nivel</strong> que mapea instrucciones binarias a nemónicos
+                        comprensibles. Cada instrucción controla directamente el hardware.</p>
+                    <ul>
+                        <li>Acceso total a registros y memoria.</li>
+                        <li>Máxima eficiencia y control.</li>
+                        <li>Dependiente de la arquitectura (x86, ARM, RISC‑V, etc.).</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Ejemplo -->
+            <div class="card" data-aos="fade-up">
+                <div class="card-image">
+                    <img src="images/depurador.jpg" alt="Depurador ensamblador">
+                </div>
+                <div class="card-header">
+                    <h3>Ejemplo en x86</h3>
+                </div>
+                <div class="card-content">
+                    <p>Un snippet típico:</p>
+                    <pre>
+MOV AX, 4C00h  ; Prepara salida
+INT 21h        ; Llama a DOS
+                    </pre>
+                </div>
+            </div>
+
+            <!-- Características clave -->
+            <div class="card" data-aos="fade-up">
+                <div class="card-image">
+                    <img src="images/codigo.png" alt="Características ensamblador">
+                </div>
+                <div class="card-header">
+                    <h3>Características Clave</h3>
+                </div>
+                <div class="card-content">
+                    <ul>
+                        <li>Útil para <em>bootloaders</em>, firmware y optimización extrema.</li>
+                        <li>Requiere conocimiento profundo de la CPU.</li>
+                        <li>Comúnmente mezclado con C/C++ en sistemas embebidos.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Microcontroladores -->
+    <section id="microcontroladores" class="category-section">
+        <h2>Microcontroladores</h2>
+        <div class="cards-grid">
+            <div class="card" data-aos="fade-up">
+                <div class="card-image">
+                    <img src="images/micro.jpg" alt="Microcontrolador PIC">
+                </div>
+                <div class="card-header">
+                    <h3>PIC18F46K22</h3>
+                </div>
+                <div class="card-content">
+                    <p>MCU de 8‑bit con memoria Flash, convertidores ADC y múltiples puertos I/O.</p>
+                </div>
+            </div>
+            <div class="card" data-aos="fade-up">
+                <div class="card-image">
+                    <img src="images/arduino.jpg" alt="Arduino Uno">
+                </div>
+                <div class="card-header">
+                    <h3>Arduino Uno (ATmega328P)</h3>
+                </div>
+                <div class="card-content">
+                    <p>Plataforma ideal para prototipos rápidos y educación <strong>STEM</strong>.</p>
+                    <ul>
+                        <li>Frecuencia: 16&nbsp;MHz.</li>
+                        <li>14 pines digitales + 6 analógicos.</li>
+                        <li>Soporte extenso de librerías &amp; shields.</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Resumen de características -->
+            <div class="card" data-aos="fade-up">
+                <div class="card-image">
+                    <img src="images/micro.jpg" alt="Características MCU">
+                </div>
+                <div class="card-header">
+                    <h3>¿Por qué usar un MCU?</h3>
+                </div>
+                <div class="card-content">
+                    <ul>
+                        <li>Bajo consumo energético (&lt; 50 mA típico).</li>
+                        <li>Periféricos integrados (UART, I2C, SPI, PWM).</li>
+                        <li>Costo &lt; US\$5 en volumen.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-column">
+                <h3>Sobre EduTec</h3>
+                <p>Recursos curados para estudiantes de Ingeniería Electrónica y Computación.</p>
+            </div>
+            <div class="footer-column">
+                <h3>Enlaces Rápidos</h3>
+                <ul>
+                    <li><a href="timeline.html">Línea de Tiempo</a></li>
+                    <li><a href="laptops.html">Recomendación de Laptops</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contacto</h3>
+                <p>¿Tienes preguntas o sugerencias? ¡Escríbenos!</p>
+                <a href="mailto:contacto@edutec.com" class="btn">Contáctanos</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="current-year"></span> EduTec - Contenido Educativo</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
+
+<!-- FILE: laptops.html -->
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recomendación de Laptops</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Header reutilizado -->
+    <header id="header" class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">Guía de AMC 1</a>
+            <nav class="desktop-menu">
+                <a href="index.html#ensamblador" class="nav-link">Lenguaje Ensamblador</a>
+                <a href="index.html#microprocesadores" class="nav-link">Microprocesadores</a>
+                <a href="index.html#microcontroladores" class="nav-link">Microcontroladores</a>
+                <a href="laptops.html" class="nav-link active">Recomendación de Laptops</a>
+            </nav>
+            <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Menú móvil">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="4" x2="20" y1="12" y2="12"></line>
+                    <line x1="4" x2="20" y1="6" y2="6"></line>
+                    <line x1="4" x2="20" y1="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="mobile-menu">
+            <a href="index.html#ensamblador" class="mobile-nav-link">Lenguaje Ensamblador</a>
+            <a href="index.html#microprocesadores" class="mobile-nav-link">Microprocesadores</a>
+            <a href="index.html#microcontroladores" class="mobile-nav-link">Microcontroladores</a>
+            <a href="laptops.html" class="mobile-nav-link active">Recomendación de Laptops</a>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero hero-small">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <h1>Encuentra la Laptop Perfecta</h1>
+            <p>Elegimos especificaciones recomendadas según tu tipo de trabajo.</p>
+        </div>
+    </section>
+
+    <!-- Recomendaciones -->
+    <section id="laptops" class="category-section">
+        <h2>Recomendaciones por Perfil</h2>
+        <div class="cards-grid">
+            <!-- Oficina / Estudiante -->
+            <div class="card" data-aos="fade-up">
+                <div class="card-header">
+                    <h3>Ofimática &amp; Estudios</h3>
+                </div>
+                <div class="card-content">
+                    <ul>
+                        <li>CPU: Intel Core&nbsp;i5 / Ryzen&nbsp;5.</li>
+                        <li>Memoria: 8&nbsp;GB RAM.</li>
+                        <li>Almacenamiento: 256‑512&nbsp;GB SSD.</li>
+                        <li>Gráficos: Integrados.</li>
+                        <li>Autonomía > 8 h.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Programación -->
+            <div class="card" data-aos="fade-up">
+                <div class="card-header">
+                    <h3>Programación</h3>
+                </div>
+                <div class="card-content">
+                    <ul>
+                        <li>CPU: i5‑H / Ryzen&nbsp;5&nbsp;HS.</li>
+                        <li>Memoria: 16&nbsp;GB RAM (ampliable).</li>
+                        <li>SSD: 512&nbsp;GB NVMe.</li>
+                        <li>Teclado retroiluminado y buena ventilación.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Diseño Gráfico / Arquitectura -->
+            <div class="card" data-aos="fade-up">
+                <div class="card-header">
+                    <h3>Diseño &amp; Arquitectura</h3>
+                </div>
+                <div class="card-content">
+                    <ul>
+                        <li>CPU: i7 / Ryzen&nbsp;7.</li>
+                        <li>GPU: RTX&nbsp;4050+ / Radeon 7600S+</li>
+                        <li>Memoria: 16‑32 GB RAM.</li>
+                        <li>Pantalla IPS/QLED 100 % sRGB.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Gaming -->
+            <div class="card" data-aos="fade-up">
+                <div class="card-header">
+                    <h3>Gaming</h3>
+                </div>
+                <div class="card-content">
+                    <ul>
+                        <li>CPU: i7‑HX / Ryzen 9.</li>
+                        <li>GPU: RTX 4060 ↗ 4080.</li>
+                        <li>Memoria: 16‑32 GB RAM.</li>
+                        <li>Pantalla 144+ Hz.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- IA &amp; Ciencia de Datos -->
+            <div class="card" data-aos="fade-up">
+                <div class="card-header">
+                    <h3>IA &amp; Data Science</h3>
+                </div>
+                <div class="card-content">
+                    <ul>
+                        <li>CPU: i9 / Ryzen 9.</li>
+                        <li>GPU: RTX 4090&nbsp;Laptop (CUDA&nbsp;cores > 9000).</li>
+                        <li>Memoria: 32‑64 GB RAM.</li>
+                        <li>Almacenamiento: 1‑2 TB SSD.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer reutilizado -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-column">
+                <h3>Sobre EduTec</h3>
+                <p>Recursos curados para estudiantes de Ingeniería Electrónica y Computación.</p>
+            </div>
+            <div class="footer-column">
+                <h3>Enlaces Rápidos</h3>
+                <ul>
+                    <li><a href="index.html#ensamblador">Lenguaje Ensamblador</a></li>
+                    <li><a href="index.html#microprocesadores">Microprocesadores</a></li>
+                    <li><a href="index.html#microcontroladores">Microcontroladores</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contacto</h3>
+                <a href="mailto:contacto@edutec.com" class="btn">Contáctanos</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="current-year"></span> EduTec - Contenido Educativo</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
