@@ -1,23 +1,415 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Microprocesadores en Electrodomésticos</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduTec Electrónica - Microprocesadores en Electrodomésticos</title>
+  <link rel="stylesheet" href="styles2.css">
 </head>
 <body>
-    <header class="header">
-        <div class="container header-container">
-            <a href="index.html" class="logo">EduTec Electrónica</a>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <h1 class="header-title">EduTec Electrónica</h1>
+    </div>
+  </header>
+
+  <!-- Contenido principal -->
+  <main class="container">
+    <!-- Sección de introducción -->
+    <section class="intro-section">
+      <h2 class="section-title">Microprocesadores en Electrodomésticos</h2>
+      <p class="intro-text">
+        Los microprocesadores han revolucionado los electrodomésticos, permitiendo funciones inteligentes como el
+        control de temperatura, temporizadores, eficiencia energética y conectividad. Gracias a ellos, los
+        dispositivos del hogar son más seguros, eficientes y fáciles de usar.
+      </p>
+      <div class="intro-image">
+        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-jW8QY7094LuhvlLy1J8ux81PB2J45P.png" alt="Microchip PIC18F46K22">
+      </div>
+    </section>
+
+    <!-- Nuevas tarjetas de información -->
+    <section class="cards-section">
+      <h3 class="section-title">Tipos de Microprocesadores en Electrodomésticos</h3>
+
+      <div class="tabs">
+        <div class="tabs-list">
+          <button class="tab-trigger active" data-tab="cocina">Cocina</button>
+          <button class="tab-trigger" data-tab="lavado">Lavado</button>
+          <button class="tab-trigger" data-tab="climatizacion">Climatización</button>
+          <button class="tab-trigger" data-tab="smart">Smart Home</button>
         </div>
-    </header>
-    <main class="container main-content">
-        <h1>Microprocesadores en Electrodomésticos</h1>
-        <p>Los microprocesadores han revolucionado los electrodomésticos, permitiendo funciones inteligentes como el control de temperatura, temporizadores, eficiencia energética y conectividad. Gracias a ellos, los dispositivos del hogar son más seguros, eficientes y fáciles de usar.</p>
-        <img src="images/micro.jpg" alt="Microprocesador en electrodomésticos" class="img-central">
-        <a href="index.html" class="btn">Volver al inicio</a>
-    </main>
+
+        <!-- Contenido de pestañas -->
+        <div class="tab-content active" id="cocina">
+          <div class="cards-grid">
+            <!-- Tarjeta 1 -->
+            <div class="card">
+              <div class="card-header">
+                <h4 class="card-title">Microprocesadores en Hornos Inteligentes</h4>
+                <p class="card-description">Control preciso de temperatura y funciones programables</p>
+              </div>
+              <div class="card-image">
+                <img src="images/horno.jpg" alt="Microprocesador en horno inteligente">
+              </div>
+              <div class="card-content">
+                <h4 class="content-title">Características Técnicas:</h4>
+                <ul class="feature-list">
+                  <li>Procesadores ARM Cortex-M de 32 bits</li>
+                  <li>Frecuencia de operación: 48-120 MHz</li>
+                  <li>Memoria Flash: 64-256 KB</li>
+                  <li>Convertidores ADC de alta precisión para sensores de temperatura</li>
+                </ul>
+                <h4 class="content-title">Aplicaciones:</h4>
+                <p>
+                  Control PID para mantener temperaturas precisas, interfaces táctiles, conectividad WiFi para
+                  control remoto, y algoritmos de cocción automática basados en el tipo de alimento.
+                </p>
+              </div>
+              <div class="card-footer">
+                Fabricantes comunes: ST Microelectronics, Texas Instruments, NXP
+              </div>
+            </div>
+
+            <!-- Tarjeta 2 -->
+            <div class="card">
+              <div class="card-header">
+                <h4 class="card-title">Microprocesadores en Refrigeradores</h4>
+                <p class="card-description">Control de temperatura y gestión energética eficiente</p>
+              </div>
+              <div class="card-image">
+                <img src="images/refrigerador.jpg" alt="Microprocesador en refrigerador">
+              </div>
+              <div class="card-content">
+                <h4 class="content-title">Características Técnicas:</h4>
+                <ul class="feature-list">
+                  <li>Microcontroladores de 8 a 16 bits</li>
+                  <li>Bajo consumo energético (modos sleep avanzados)</li>
+                  <li>Memoria Flash: 32-128 KB</li>
+                  <li>Múltiples interfaces para sensores de temperatura</li>
+                </ul>
+                <h4 class="content-title">Aplicaciones:</h4>
+                <p>
+                  Control de compresores inverter, gestión de zonas de temperatura independientes, monitoreo de
+                  apertura de puertas, y optimización del ciclo de descongelación para ahorrar energía.
+                </p>
+              </div>
+              <div class="card-footer">
+                Fabricantes comunes: Microchip, Renesas, Infineon
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-content" id="lavado">
+          <div class="cards-grid">
+            <!-- Tarjeta 1 -->
+            <div class="card">
+              <div class="card-header">
+                <h4 class="card-title">Microprocesadores en Lavadoras</h4>
+                <p class="card-description">Control de ciclos y optimización del consumo de agua</p>
+              </div>
+              <div class="card-image">
+                <img src="images/lavadora.jpg" alt="Microprocesador en lavadora">
+              </div>
+              <div class="card-content">
+                <h4 class="content-title">Características Técnicas:</h4>
+                <ul class="feature-list">
+                  <li>Microcontroladores de 16 a 32 bits</li>
+                  <li>Frecuencia de operación: 24-80 MHz</li>
+                  <li>Memoria Flash: 64-256 KB</li>
+                  <li>Controladores PWM para motores de velocidad variable</li>
+                </ul>
+                <h4 class="content-title">Aplicaciones:</h4>
+                <p>
+                  Control de motores inverter, detección de carga y tipo de tejido, ajuste automático de ciclos de
+                  lavado, y diagnóstico de fallos con conectividad para mantenimiento remoto.
+                </p>
+              </div>
+              <div class="card-footer">
+                Fabricantes comunes: NXP, Renesas, STMicroelectronics
+              </div>
+            </div>
+
+            <!-- Tarjeta 2 -->
+            <div class="card">
+              <div class="card-header">
+                <h4 class="card-title">Microprocesadores en Lavavajillas</h4>
+                <p class="card-description">Optimización de ciclos de lavado y eficiencia hídrica</p>
+              </div>
+              <div class="card-image">
+                <img src="images/lavajilla.jpg" alt="Microprocesador en lavavajillas">
+              </div>
+              <div class="card-content">
+                <h4 class="content-title">Características Técnicas:</h4>
+                <ul class="feature-list">
+                  <li>Microcontroladores de 16 bits</li>
+                  <li>Frecuencia de operación: 16-48 MHz</li>
+                  <li>Memoria Flash: 32-128 KB</li>
+                  <li>Interfaces para sensores de turbidez y nivel de agua</li>
+                </ul>
+                <h4 class="content-title">Aplicaciones:</h4>
+                <p>
+                  Detección de suciedad mediante sensores ópticos, ajuste automático de temperatura y presión de
+                  agua, control de bombas de circulación, y sistemas de secado eficientes.
+                </p>
+              </div>
+              <div class="card-footer">
+                Fabricantes comunes: Microchip, Texas Instruments, Infineon
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-content" id="climatizacion">
+          <div class="cards-grid">
+            <!-- Tarjeta 1 -->
+            <div class="card">
+              <div class="card-header">
+                <h4 class="card-title">Microprocesadores en Aires Acondicionados</h4>
+                <p class="card-description">Control de temperatura y eficiencia energética</p>
+              </div>
+              <div class="card-image">
+                <img src="images/aire.jpg" alt="Microprocesador en aire acondicionado">
+              </div>
+              <div class="card-content">
+                <h4 class="content-title">Características Técnicas:</h4>
+                <ul class="feature-list">
+                  <li>Microcontroladores de 32 bits</li>
+                  <li>Frecuencia de operación: 48-120 MHz</li>
+                  <li>Memoria Flash: 128-512 KB</li>
+                  <li>Controladores para compresores inverter de alta eficiencia</li>
+                </ul>
+                <h4 class="content-title">Aplicaciones:</h4>
+                <p>
+                  Control de velocidad variable del compresor, detección de presencia humana para optimizar el
+                  funcionamiento, control de flujo de aire, y conectividad WiFi para integración con sistemas
+                  domóticos.
+                </p>
+              </div>
+              <div class="card-footer">
+                Fabricantes comunes: Renesas, NXP, STMicroelectronics
+              </div>
+            </div>
+
+            <!-- Tarjeta 2 -->
+            <div class="card">
+              <div class="card-header">
+                <h4 class="card-title">Microprocesadores en Calefactores Inteligentes</h4>
+                <p class="card-description">Control térmico y seguridad avanzada</p>
+              </div>
+              <div class="card-image">
+                <img src="images/calefactor.jpg" alt="Microprocesador en calefactor">
+              </div>
+              <div class="card-content">
+                <h4 class="content-title">Características Técnicas:</h4>
+                <ul class="feature-list">
+                  <li>Microcontroladores de 8 a 16 bits</li>
+                  <li>Frecuencia de operación: 16-48 MHz</li>
+                  <li>Memoria Flash: 32-128 KB</li>
+                  <li>Interfaces para múltiples sensores de temperatura y seguridad</li>
+                </ul>
+                <h4 class="content-title">Aplicaciones:</h4>
+                <p>
+                  Control de temperatura PID, sistemas de seguridad contra sobrecalentamiento, detección de caídas o
+                  inclinación, temporizadores programables, y modos de ahorro energético.
+                </p>
+              </div>
+              <div class="card-footer">
+                Fabricantes comunes: Microchip, Texas Instruments, Silicon Labs
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-content" id="smart">
+          <div class="cards-grid">
+            <!-- Tarjeta 1 -->
+            <div class="card">
+              <div class="card-header">
+                <h4 class="card-title">Microprocesadores en Asistentes de Hogar</h4>
+                <p class="card-description">Procesamiento de voz y control centralizado</p>
+              </div>
+              <div class="card-image">
+                <img src="images/asistente.jpg" alt="Microprocesador en asistente de hogar">
+              </div>
+              <div class="card-content">
+                <h4 class="content-title">Características Técnicas:</h4>
+                <ul class="feature-list">
+                  <li>Procesadores ARM Cortex-A de 64 bits</li>
+                  <li>Frecuencia de operación: 1-2 GHz</li>
+                  <li>Memoria RAM: 512 MB - 2 GB</li>
+                  <li>DSP dedicado para procesamiento de audio</li>
+                </ul>
+                <h4 class="content-title">Aplicaciones:</h4>
+                <p>
+                  Reconocimiento de voz, procesamiento de lenguaje natural, control centralizado de dispositivos
+                  IoT, reproducción multimedia, y aprendizaje de patrones de uso para automatización.
+                </p>
+              </div>
+              <div class="card-footer">
+                Fabricantes comunes: Qualcomm, MediaTek, Amlogic
+              </div>
+            </div>
+
+            <!-- Tarjeta 2 -->
+            <div class="card">
+              <div class="card-header">
+                <h4 class="card-title">Microprocesadores en Sistemas de Iluminación</h4>
+                <p class="card-description">Control inteligente y eficiencia energética</p>
+              </div>
+              <div class="card-image">
+                <img src="images/iluminacion.jpg" alt="Microprocesador en sistema de iluminación">
+              </div>
+              <div class="card-content">
+                <h4 class="content-title">Características Técnicas:</h4>
+                <ul class="feature-list">
+                  <li>Microcontroladores de 8 a 32 bits</li>
+                  <li>Frecuencia de operación: 16-80 MHz</li>
+                  <li>Memoria Flash: 32-256 KB</li>
+                  <li>Controladores PWM para LED RGB</li>
+                </ul>
+                <h4 class="content-title">Aplicaciones:</h4>
+                <p>
+                  Control de intensidad y color, programación horaria, detección de presencia, integración con
+                  sistemas de automatización, y modos adaptativos según la luz natural.
+                </p>
+              </div>
+              <div class="card-footer">
+                Fabricantes comunes: Espressif (ESP32), Nordic Semiconductor, Silicon Labs
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección de tecnologías emergentes -->
+    <section class="tech-section">
+      <h3 class="section-title">Tecnologías Emergentes en Microprocesadores</h3>
+      <div class="tech-cards">
+        <div class="tech-card">
+          <div class="tech-card-header">
+            <h4 class="tech-card-title">Inteligencia Artificial Embebida</h4>
+          </div>
+          <div class="tech-card-content">
+            <p>
+              Los nuevos microprocesadores incluyen unidades de procesamiento neuronal (NPU) que permiten ejecutar
+              algoritmos de IA directamente en el electrodoméstico sin necesidad de conexión a la nube.
+            </p>
+            <p>
+              Aplicaciones: reconocimiento de patrones de uso, optimización automática de consumo energético, y
+              mantenimiento predictivo.
+            </p>
+          </div>
+        </div>
+
+        <div class="tech-card">
+          <div class="tech-card-header">
+            <h4 class="tech-card-title">Procesadores de Ultra Bajo Consumo</h4>
+          </div>
+          <div class="tech-card-content">
+            <p>
+              Nuevas arquitecturas que operan con consumos de energía extremadamente bajos, permitiendo que sensores
+              y dispositivos funcionen durante años con una sola batería o incluso con energy harvesting.
+            </p>
+            <p>
+              Aplicaciones: sensores inalámbricos, dispositivos IoT autónomos, y electrodomésticos con standby casi
+              nulo.
+            </p>
+          </div>
+        </div>
+
+        <div class="tech-card">
+          <div class="tech-card-header">
+            <h4 class="tech-card-title">Seguridad Integrada</h4>
+          </div>
+          <div class="tech-card-content">
+            <p>
+              Microprocesadores con elementos de seguridad hardware como enclaves seguros, cifrado acelerado por
+              hardware y protección contra manipulaciones físicas.
+            </p>
+            <p>
+              Aplicaciones: protección de datos personales, comunicaciones seguras entre dispositivos, y prevención
+              de ataques en electrodomésticos conectados.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tabla comparativa -->
+    <section class="table-section">
+      <h3 class="section-title">Comparativa de Microprocesadores Comunes</h3>
+      <div class="table-container">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Modelo</th>
+              <th>Arquitectura</th>
+              <th>Velocidad</th>
+              <th>Memoria</th>
+              <th>Aplicación Típica</th>
+              <th>Características Destacadas</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>PIC18F46K22</td>
+              <td>8 bits</td>
+              <td>16 MHz</td>
+              <td>64 KB Flash</td>
+              <td>Microondas, pequeños electrodomésticos</td>
+              <td>Bajo consumo, periféricos integrados</td>
+            </tr>
+            <tr class="alt-row">
+              <td>STM32F103</td>
+              <td>32 bits (ARM Cortex-M3)</td>
+              <td>72 MHz</td>
+              <td>128 KB Flash</td>
+              <td>Lavadoras, aires acondicionados</td>
+              <td>Alto rendimiento, múltiples interfaces</td>
+            </tr>
+            <tr>
+              <td>ESP32</td>
+              <td>32 bits (Dual-core)</td>
+              <td>240 MHz</td>
+              <td>4 MB Flash</td>
+              <td>Electrodomésticos conectados, Smart Home</td>
+              <td>WiFi/BT integrado, procesamiento paralelo</td>
+            </tr>
+            <tr class="alt-row">
+              <td>MSP430</td>
+              <td>16 bits</td>
+              <td>16 MHz</td>
+              <td>32 KB Flash</td>
+              <td>Termostatos, sensores</td>
+              <td>Ultra bajo consumo, modos sleep avanzados</td>
+            </tr>
+            <tr>
+              <td>i.MX RT1050</td>
+              <td>32 bits (ARM Cortex-M7)</td>
+              <td>600 MHz</td>
+              <td>512 KB SRAM</td>
+              <td>Refrigeradores inteligentes, pantallas táctiles</td>
+              <td>Procesamiento gráfico, alto rendimiento</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-text">
+        © 2023 EduTec Electrónica - Recursos educativos sobre microprocesadores y electrónica
+      </p>
+    </div>
+  </footer>
+
+  <script src="script2.js"></script>
 </body>
 </html>

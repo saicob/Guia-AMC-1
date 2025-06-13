@@ -2,22 +2,617 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Microprocesadores en Computadoras y Laptops</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Computadoras y Laptops</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(120deg, #ffebee 0%, #ffcdd2 100%);
+            min-height: 100vh;
+        }
+        .main-header {
+            background: linear-gradient(90deg, #b71c1c 70%, #ff5252 100%);
+            color: #fff;
+            border-radius: 0 0 2.5rem 2.5rem;
+            box-shadow: 0 8px 40px rgba(183,28,28,0.17);
+            padding: 3.2rem 1rem 2.2rem 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .main-header::before {
+            content: "";
+            position: absolute;
+            top: -70px;
+            right: -90px;
+            width: 280px;
+            height: 280px;
+            background: radial-gradient(circle at 20% 40%, #fff6f4 0, #ff525200 70%);
+            z-index: 0;
+            opacity: 0.25;
+        }
+        .main-header .bi {
+            font-size: 2.7rem;
+            color: #fffde7;
+            margin-right: 0.5rem;
+            vertical-align: -0.3em;
+            filter: drop-shadow(0 2px 8px #b71c1c77);
+        }
+        .main-header h1, .main-header p {
+            position: relative;
+            z-index: 2;
+        }
+        .intro-section {
+            background: #fff;
+            border-radius: 2.2rem;
+            margin: -2.2rem auto 2.7rem auto;
+            box-shadow: 0 4px 22px rgba(183,28,28,0.10);
+            max-width: 970px;
+            padding: 2.3rem 2.2rem 2.1rem 2.2rem;
+            position: relative;
+            z-index: 2;
+            overflow: hidden;
+        }
+        .intro-section::after {
+            content: "";
+            position: absolute;
+            bottom: -60px;
+            left: -80px;
+            width: 180px;
+            height: 180px;
+            background: radial-gradient(circle at 70% 80%, #ff8a80 0, #fff 80%);
+            opacity: .12;
+            z-index: 0;
+        }
+        .section-title {
+            color: #b71c1c;
+            font-weight: 700;
+            margin-bottom: 1.1rem;
+            margin-top: 1.7rem;
+            letter-spacing: 1px;
+            text-shadow: 0 1px 6px #fff1, 0 4px 16px #b71c1c22;
+        }
+        .feature-cards-row .card {
+            border: none;
+            border-radius: 1.5rem;
+            box-shadow: 0 3px 22px rgba(183,28,28,0.09), 0 1.5px 8px rgba(255,82,82,0.09);
+            transition: box-shadow 0.3s, transform 0.3s;
+            background: #fff9f9;
+            border-top: 4px solid #ff5252;
+            text-align: center;
+        }
+        .feature-cards-row .card:hover {
+            box-shadow: 0 12px 36px rgba(183,28,28,0.17), 0 2px 16px rgba(255,82,82,0.15);
+            transform: scale(1.04) translateY(-4px) rotate(-1deg);
+            border-top: 4px solid #b71c1c;
+        }
+        .feature-cards-row .bi {
+            font-size: 2.5rem;
+            color: #b71c1c;
+            margin-bottom: 1rem;
+            transition: color 0.3s;
+        }
+        .feature-cards-row .card:hover .bi {
+            color: #ff5252;
+        }
+        /* Laptops Showcase */
+        .laptop-gallery {
+            background: linear-gradient(90deg, #fff, #ffebee 80%);
+            border-radius: 1.6rem;
+            padding: 2.5rem 1rem 1.7rem 1rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 2px 12px rgba(183,28,28,0.10);
+            overflow: hidden;
+            position: relative;
+        }
+        .laptop-gallery::before {
+            content: "";
+            position: absolute;
+            top: -70px;
+            left: -80px;
+            width: 190px;
+            height: 190px;
+            background: radial-gradient(circle at 20% 40%, #ff5252 0, #fff 90%);
+            opacity: .06;
+            z-index: 0;
+        }
+        .laptop-card {
+            border: none;
+            border-radius: 1.2rem;
+            box-shadow: 0 2px 18px rgba(183,28,28,0.09);
+            background: #fff;
+            transition: transform 0.23s, box-shadow 0.23s;
+            overflow: hidden;
+            position: relative;
+        }
+        .laptop-card:hover {
+            transform: scale(1.045) translateY(-4px) rotate(-.5deg);
+            box-shadow: 0 6px 24px rgba(255,82,82,0.13);
+            z-index: 1;
+        }
+        .laptop-card img {
+            height: 150px;
+            object-fit: cover;
+            border-radius: 1.2rem 1.2rem 0 0;
+            background: #ffcdd2;
+            transition: filter 0.2s;
+        }
+        .laptop-card:hover img {
+            filter: brightness(1.08) saturate(1.15);
+        }
+        .laptop-card .badge {
+            font-size: 0.9em;
+        }
+        .laptop-specs {
+            font-size: 0.99rem;
+            margin-bottom: 0.5rem;
+            color: #b71c1c;
+        }
+        .component-section {
+            background: linear-gradient(90deg, #ffcdd2 60%, #fff 100%);
+            border-radius: 1.5rem;
+            padding: 2.5rem 2rem 2rem 2rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 2px 18px #b71c1c13;
+        }
+        .component-list li {
+            margin-bottom: 1.1rem;
+            font-size: 1.11rem;
+            line-height: 1.6;
+        }
+        .component-list .bi {
+            color: #e53935;
+            margin-right: 0.5rem;
+        }
+        .tips-section {
+            background: #fff8e1;
+            color: #9c1c1c;
+            border-radius: 1.3rem;
+            padding: 1.7rem 2.3rem;
+            box-shadow: 0 1px 10px rgba(183,28,28,0.09);
+        }
+        .tips-section .bi {
+            color: #e53935;
+        }
+        .resources-link {
+            text-decoration: none;
+            color: #e53935;
+            font-weight: bold;
+            transition: color 0.22s;
+        }
+        .resources-link:hover {
+            color: #b71c1c;
+            text-decoration: underline;
+        }
+        .faq-section .accordion-button:not(.collapsed) {
+            background: #ffcdd2;
+            color: #b71c1c;
+        }
+        .faq-section .accordion-button {
+            transition: background 0.2s, color 0.2s;
+        }
+        .faq-section .accordion-item {
+            border-radius: 0.8rem !important;
+            overflow: hidden;
+            box-shadow: 0 1px 7px #b71c1c13;
+            margin-bottom: 0.8rem;
+        }
+        /* Table comparativa */
+        .table-comparativa {
+            border-radius: 1.1rem;
+            overflow: hidden;
+            box-shadow: 0 2px 12px #b71c1c15;
+            margin-bottom: 2.5rem;
+            background: #fff;
+        }
+        .table-comparativa th {
+            background: linear-gradient(90deg, #b71c1c 80%, #ff5252 100%);
+            color: #fff;
+            text-align: center;
+            border: none;
+        }
+        .table-comparativa td {
+            background: #fff;
+            vertical-align: middle;
+            border: none;
+        }
+        .table-comparativa tbody tr:hover td {
+            background: #ffebee;
+        }
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(45px) scale(0.98);
+            transition: opacity 0.8s cubic-bezier(.61,-0.12,.58,1.1), transform 0.8s cubic-bezier(.61,-0.12,.58,1.1);
+        }
+        .fade-in.show {
+            opacity: 1;
+            transform: none;
+        }
+        /* New: Floating button */
+        .floating-help-btn {
+            position: fixed;
+            bottom: 34px;
+            right: 34px;
+            background: linear-gradient(90deg, #ff5252 80%, #b71c1c 100%);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 64px;
+            height: 64px;
+            box-shadow: 0 2px 16px #b71c1c44;
+            font-size: 2.1rem;
+            z-index: 999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.22s;
+        }
+        .floating-help-btn:hover {
+            background: linear-gradient(90deg, #b71c1c 90%, #ff5252 100%);
+            transform: scale(1.08);
+        }
+        /* New: hero wave bottom */
+        .main-header .wave {
+            position: absolute;
+            left: 0;
+            bottom: -1px;
+            width: 100%;
+            height: 60px;
+            z-index: 2;
+        }
+        @media (max-width: 600px) {
+            .intro-section, .component-section, .tips-section, .laptop-gallery { padding: 1.1rem !important; }
+            .laptop-card img { height: 100px; }
+            .main-header { padding: 2.1rem 0.4rem 1.2rem 0.4rem; }
+            .main-header h1 { font-size: 2rem; }
+            .table-comparativa th, .table-comparativa td { font-size: 0.97em; }
+        }
+    </style>
 </head>
 <body>
-    <header class="header">
-        <div class="container header-container">
-            <a href="index.html" class="logo">EduTec Electrónica</a>
-        </div>
+    <header class="main-header text-center mb-0">
+        <h1 class="display-4 fw-bold">
+            <i class="bi bi-pc-display-horizontal"></i> Computadoras y Laptops
+        </h1>
+        <p class="lead mt-3 mb-0">Explora las mejores opciones y conoce sus componentes clave</p>
+        <svg class="wave" viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill="#fff" d="M0,10 C480,80 960,0 1440,50 L1440,60 L0,60 Z"/></svg>
     </header>
-    <main class="container main-content">
-        <h1>Microprocesadores en Computadoras y Laptops</h1>
-        <p>Los microprocesadores son el corazón de las computadoras y laptops modernas. Permiten ejecutar sistemas operativos, aplicaciones y realizar tareas complejas con rapidez y eficiencia, siendo esenciales para el trabajo, el estudio y el entretenimiento.</p>
-        <img src="images/inteli7.jpg" alt="Microprocesador en computadoras" class="img-central">
-        <a href="index.html" class="btn">Volver al inicio</a>
-    </main>
+
+    <!-- Intro Section -->
+    <section class="intro-section text-center fade-in">
+        <h2 class="fw-bold mb-3"><i class="bi bi-lightning-charge"></i> Potencia y Estilo para tu Mundo Digital</h2>
+        <p class="fs-5 mb-4">
+            Las computadoras y laptops actuales combinan diseño, rendimiento y portabilidad. Ya sea para estudiar, trabajar, crear o jugar, elegir el equipo adecuado es clave para aprovechar cada oportunidad tecnológica.
+        </p>
+        <div class="row feature-cards-row mt-4">
+            <div class="col-12 col-md-4 mb-3 mb-md-0">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <i class="bi bi-rocket-takeoff"></i>
+                        <h5 class="card-title">Rendimiento</h5>
+                        <p class="card-text">Procesadores modernos, memoria rápida y discos sólidos aseguran eficiencia en cualquier tarea.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 mb-3 mb-md-0">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <i class="bi bi-arrows-move"></i>
+                        <h5 class="card-title">Portabilidad</h5>
+                        <p class="card-text">Laptops ultraligeras y convertibles para que puedas trabajar o estudiar donde quieras.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <i class="bi bi-shield-lock"></i>
+                        <h5 class="card-title">Seguridad</h5>
+                        <p class="card-text">Protege tu información con sistemas biométricos, cifrado y copias de seguridad en la nube.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Laptops Showcase -->
+    <section class="laptop-gallery mx-auto fade-in" style="max-width:1080px;">
+        <h2 class="section-title text-center"><i class="bi bi-laptop"></i> Laptops Destacadas 2025</h2>
+        <div class="row g-4 justify-content-center">
+            <div class="col-12 col-md-4">
+                <div class="card laptop-card h-100">
+                    <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?fit=crop&w=600&q=80" class="card-img-top" alt="MacBook Air M2">
+                    <div class="card-body">
+                        <h5 class="card-title"><i class="bi bi-apple"></i> MacBook Air M2</h5>
+                        <div class="laptop-specs">
+                            <strong>CPU:</strong> Apple M2<br>
+                            <strong>Pantalla:</strong> Retina 13.6”<br>
+                            <strong>RAM:</strong> 8GB/16GB<br>
+                            <strong>SSD:</strong> 256GB/512GB
+                        </div>
+                        <span class="badge bg-danger-subtle text-danger mb-1">Silenciosa, ligera y con batería de hasta 18h</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="card laptop-card h-100">
+                    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?fit=crop&w=600&q=80" class="card-img-top" alt="Dell XPS 13">
+                    <div class="card-body">
+                        <h5 class="card-title"><i class="bi bi-windows"></i> Dell XPS 13 Plus</h5>
+                        <div class="laptop-specs">
+                            <strong>CPU:</strong> Intel Core i7 13ª Gen<br>
+                            <strong>Pantalla:</strong> OLED 13.4”<br>
+                            <strong>RAM:</strong> 16GB<br>
+                            <strong>SSD:</strong> 512GB
+                        </div>
+                        <span class="badge bg-danger-subtle text-danger mb-1">Diseño premium y gran desempeño</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="card laptop-card h-100">
+                    <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?fit=crop&w=600&q=80" class="card-img-top" alt="Asus ROG Zephyrus G14">
+                    <div class="card-body">
+                        <h5 class="card-title"><i class="bi bi-controller"></i> Asus ROG Zephyrus G14</h5>
+                        <div class="laptop-specs">
+                            <strong>CPU:</strong> AMD Ryzen 9<br>
+                            <strong>GPU:</strong> Nvidia RTX 4060<br>
+                            <strong>Pantalla:</strong> QHD 14” 120Hz<br>
+                            <strong>RAM:</strong> 16GB
+                        </div>
+                        <span class="badge bg-danger-subtle text-danger mb-1">Ideal para gamers y creadores</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Más laptops -->
+        <div class="row g-4 justify-content-center mt-4">
+            <div class="col-12 col-md-4">
+                <div class="card laptop-card h-100">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?fit=crop&w=600&q=80" class="card-img-top" alt="Lenovo ThinkPad X1 Carbon">
+                    <div class="card-body">
+                        <h5 class="card-title"><i class="bi bi-laptop"></i> Lenovo ThinkPad X1 Carbon</h5>
+                        <div class="laptop-specs">
+                            <strong>CPU:</strong> Intel Core i7<br>
+                            <strong>Pantalla:</strong> 14” FHD/4K<br>
+                            <strong>RAM:</strong> 16GB<br>
+                            <strong>SSD:</strong> 512GB/1TB
+                        </div>
+                        <span class="badge bg-danger-subtle text-danger mb-1">Preferida en empresas, ultraligera y segura</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="card laptop-card h-100">
+                    <img src="https://images.unsplash.com/photo-1482062364825-616fd23b8fc1?fit=crop&w=600&q=80" class="card-img-top" alt="HP Pavilion 15">
+                    <div class="card-body">
+                        <h5 class="card-title"><i class="bi bi-hp"></i> HP Pavilion 15</h5>
+                        <div class="laptop-specs">
+                            <strong>CPU:</strong> Intel Core i5/i7<br>
+                            <strong>Pantalla:</strong> 15.6” FHD<br>
+                            <strong>RAM:</strong> 8GB/16GB<br>
+                            <strong>SSD:</strong> 256GB/512GB
+                        </div>
+                        <span class="badge bg-danger-subtle text-danger mb-1">Excelente relación precio/calidad</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tabla comparativa -->
+    <div class="container table-comparativa fade-in mb-4">
+        <h2 class="section-title text-center"><i class="bi bi-table"></i> Comparativa Rápida de Laptops</h2>
+        <div class="table-responsive">
+            <table class="table align-middle">
+                <thead>
+                    <tr>
+                        <th>Laptop</th>
+                        <th>Procesador</th>
+                        <th>Pantalla</th>
+                        <th>RAM</th>
+                        <th>Almacenamiento</th>
+                        <th>Peso</th>
+                        <th>Autonomía</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>MacBook Air M2</b></td>
+                        <td>Apple M2</td>
+                        <td>13.6" Retina</td>
+                        <td>8GB/16GB</td>
+                        <td>256/512GB SSD</td>
+                        <td>1.24kg</td>
+                        <td>Hasta 18h</td>
+                    </tr>
+                    <tr>
+                        <td><b>Dell XPS 13 Plus</b></td>
+                        <td>Intel Core i7</td>
+                        <td>13.4" OLED</td>
+                        <td>16GB</td>
+                        <td>512GB SSD</td>
+                        <td>1.23kg</td>
+                        <td>Hasta 12h</td>
+                    </tr>
+                    <tr>
+                        <td><b>Asus ROG Zephyrus G14</b></td>
+                        <td>AMD Ryzen 9</td>
+                        <td>14" QHD 120Hz</td>
+                        <td>16GB</td>
+                        <td>1TB SSD</td>
+                        <td>1.65kg</td>
+                        <td>Hasta 8h</td>
+                    </tr>
+                    <tr>
+                        <td><b>Lenovo ThinkPad X1 Carbon</b></td>
+                        <td>Intel Core i7</td>
+                        <td>14" FHD/4K</td>
+                        <td>16GB</td>
+                        <td>512GB/1TB SSD</td>
+                        <td>1.13kg</td>
+                        <td>Hasta 15h</td>
+                    </tr>
+                    <tr>
+                        <td><b>HP Pavilion 15</b></td>
+                        <td>Intel Core i5/i7</td>
+                        <td>15.6" FHD</td>
+                        <td>8GB/16GB</td>
+                        <td>256/512GB SSD</td>
+                        <td>1.75kg</td>
+                        <td>Hasta 10h</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Componentes -->
+    <section class="component-section mx-auto fade-in" style="max-width:1000px;">
+        <h2 class="section-title"><i class="bi bi-puzzle"></i> Componentes Clave de una Laptop Moderna</h2>
+        <ul class="component-list">
+            <li><i class="bi bi-cpu"></i> <b>Procesador (CPU):</b> Determina la rapidez en tareas complejas. Ejemplo: Intel Core i5/i7, AMD Ryzen, Apple M2.</li>
+            <li><i class="bi bi-memory"></i> <b>Memoria RAM:</b> Mínimo 8GB para uso general, 16GB+ para diseño y multitarea intensiva.</li>
+            <li><i class="bi bi-hdd"></i> <b>Almacenamiento:</b> SSD recomendado por velocidad y resistencia. 256GB es adecuado para la mayoría, pero 512GB o más para grandes proyectos.</li>
+            <li><i class="bi bi-gpu-card"></i> <b>Gráficos (GPU):</b> Integrados para tareas básicas, dedicados (Nvidia/AMD) para juegos y edición multimedia.</li>
+            <li><i class="bi bi-display"></i> <b>Pantalla:</b> Busca resolución Full HD o superior, buen brillo y tecnología antirreflejo.</li>
+            <li><i class="bi bi-battery-charging"></i> <b>Batería:</b> Elige según tus necesidades de movilidad. La eficiencia del procesador influye mucho en la autonomía.</li>
+            <li><i class="bi bi-usb-symbol"></i> <b>Conectividad:</b> WiFi 6, Bluetooth 5.2, múltiples puertos USB, HDMI, lector SD.</li>
+            <li><i class="bi bi-keyboard"></i> <b>Teclado y touchpad:</b> Prueba el confort, iluminación, y precisión si escribirás mucho.</li>
+            <li><i class="bi bi-speaker"></i> <b>Audio:</b> Altavoces estéreo de calidad mejoran la experiencia multimedia.</li>
+        </ul>
+    </section>
+
+    <!-- Consejos -->
+    <section class="tips-section mx-auto fade-in mb-5" style="max-width:1000px;">
+        <h4 class="mb-3"><i class="bi bi-lightbulb-fill"></i> Consejos para Elegir la Mejor Laptop</h4>
+        <ul>
+            <li><i class="bi bi-check-circle"></i> Elige según tu uso: estudio, diseño, juegos, ofimática o movilidad extrema.</li>
+            <li><i class="bi bi-cloud-arrow-up"></i> Prefiere almacenamiento SSD para mayor velocidad y seguridad.</li>
+            <li><i class="bi bi-battery"></i> Si viajas mucho, prioriza la autonomía y el peso.</li>
+            <li><i class="bi bi-aspect-ratio"></i> Una pantalla de calidad cuida tu vista y mejora la productividad.</li>
+            <li><i class="bi bi-lock-fill"></i> No descuides la seguridad: biometría y cifrado son aliados.</li>
+            <li><i class="bi bi-arrows-expand"></i> Si haces videoconferencias, revisa la cámara y micrófono integrados.</li>
+        </ul>
+    </section>
+
+    <!-- Recursos -->
+    <section class="container mb-5 fade-in">
+        <h3 class="fw-bold mb-3"><i class="bi bi-link-45deg"></i> Recursos y Herramientas Útiles</h3>
+        <div class="row g-3">
+            <div class="col-12 col-md-6">
+                <a href="https://www.digitaltrends.com/laptop-reviews/" target="_blank" class="resources-link">
+                    <i class="bi bi-search"></i> Reseñas y comparativas de laptops (DigitalTrends)
+                </a>
+            </div>
+            <div class="col-12 col-md-6">
+                <a href="https://www.notebookcheck.net/" target="_blank" class="resources-link">
+                    <i class="bi bi-file-earmark-text"></i> Análisis técnicos y benchmarks (Notebookcheck)
+                </a>
+            </div>
+            <div class="col-12 col-md-6">
+                <a href="https://pcpartpicker.com/" target="_blank" class="resources-link">
+                    <i class="bi bi-tools"></i> Arma tu computadora ideal (PCPartPicker)
+                </a>
+            </div>
+            <div class="col-12 col-md-6">
+                <a href="https://support.microsoft.com/es-es/windows" target="_blank" class="resources-link">
+                    <i class="bi bi-question-circle"></i> Soporte y tutoriales para Windows
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section container mb-5 fade-in">
+        <h3 class="fw-bold mb-3"><i class="bi bi-question-circle"></i> Preguntas frecuentes</h3>
+        <div class="accordion" id="faqAccordion">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="faq1">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse1" aria-expanded="false" aria-controls="faqCollapse1">
+                        ¿Qué laptop es mejor para estudiantes?
+                    </button>
+                </h2>
+                <div id="faqCollapse1" class="accordion-collapse collapse" aria-labelledby="faq1" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Modelos como el MacBook Air, Dell XPS 13 y Asus ZenBook destacan por su ligereza, batería duradera y un rendimiento equilibrado para tareas escolares y universitarias.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="faq2">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse2" aria-expanded="false" aria-controls="faqCollapse2">
+                        ¿Qué procesador es mejor: Intel, AMD o Apple Silicon?
+                    </button>
+                </h2>
+                <div id="faqCollapse2" class="accordion-collapse collapse" aria-labelledby="faq2" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Todos tienen ventajas: Intel es muy compatible, AMD ofrece excelente relación calidad-precio, y Apple Silicon (M2) destaca en eficiencia y duración de batería en MacBooks.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="faq3">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse3" aria-expanded="false" aria-controls="faqCollapse3">
+                        ¿Cuánta RAM y almacenamiento necesito?
+                    </button>
+                </h2>
+                <div id="faqCollapse3" class="accordion-collapse collapse" aria-labelledby="faq3" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Para estudio/ofimática, 8GB RAM y 256GB SSD son suficientes. Para diseño, edición de video o juegos, prefiere 16GB RAM y 512GB SSD o más.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="faq4">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse4" aria-expanded="false" aria-controls="faqCollapse4">
+                        ¿Qué mantenimiento debo hacerle a mi laptop?
+                    </button>
+                </h2>
+                <div id="faqCollapse4" class="accordion-collapse collapse" aria-labelledby="faq4" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Mantén actualizado el sistema operativo, limpia el teclado y pantalla frecuentemente, evita el sobrecalentamiento y realiza respaldos regulares de tus archivos.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating Help Button -->
+    <button class="floating-help-btn" title="¿Necesitas ayuda?">
+        <i class="bi bi-question-circle"></i>
+    </button>
+
+    <!-- Footer -->
+    <footer class="text-center py-3 mt-4 bg-white rounded-bottom-4">
+        <span class="text-secondary">© 2025 Guía de Computadoras y Laptops | Tecnología con estilo y potencia</span>
+    </footer>
+
+    <!-- Bootstrap JS (with Popper) CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    // Animación scroll reveal para secciones principales
+    function revealOnScroll() {
+        var reveals = document.querySelectorAll('.fade-in');
+        var windowHeight = window.innerHeight;
+        for (var i = 0; i < reveals.length; i++) {
+            var elementTop = reveals[i].getBoundingClientRect().top;
+            if (elementTop < windowHeight - 60) {
+                reveals[i].classList.add('show');
+            }
+        }
+    }
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('DOMContentLoaded', revealOnScroll);
+
+    // Floating help button action (example: open alert, modal, etc.)
+    document.querySelector('.floating-help-btn').addEventListener('click', function() {
+        alert('¿Necesitas ayuda para elegir tu laptop? Revisa la tabla comparativa y la sección de consejos, ¡o consulta las preguntas frecuentes!');
+    });
+    </script>
 </body>
 </html>
