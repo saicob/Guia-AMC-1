@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Arduino - Innovación y Creatividad</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(120deg, #ffebee 0%, #ffcdd2 100%);
+            min-height: 100vh;
+        }
+        .arduino-hero {
+            background: linear-gradient(100deg, #c62828 80%, #ff5252 100%);
+            color: #fff;
+            border-radius: 0 0 2.6rem 2.6rem;
+            box-shadow: 0 10px 44px rgba(198,40,40,0.13);
+            padding: 3.2rem 1rem 2.7rem 1rem;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+        .arduino-hero .icon-arduino {
+            font-size: 3.3rem;
+            margin-bottom: 0.8rem;
+            color: #fffde7;
+            filter: drop-shadow(0 2px 8px #b71c1c88);
+        }
+        .arduino-hero h1 {
+            font-size: 2.6rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-shadow: 0 1px 10px #b71c1c28;
+        }
+        .arduino-hero .lead {
+            font-size: 1.3rem;
+            font-weight: 400;
+            margin-top: 1.1rem;
+        }
+        .arduino-hero .waves {
+            position: absolute;
+            left: 0;
+            bottom: -1px;
+            width: 100%;
+            height: 62px;
+            z-index: 2;
+        }
+        .section-ar {
+            background: #fff;
+            border-radius: 1.6rem;
+            box-shadow: 0 3px 18px #c6282821;
+            padding: 2.1rem 2.2rem 2.1rem 2.2rem;
+            margin-bottom: 2.2rem;
+        }
+        .section-ar h2 {
+            color: #c62828;
+            font-weight: 700;
+            margin-bottom: 1.1rem;
+        }
+        .feature-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.3rem;
+            justify-content: center;
+        }
+        .feature-card-ar {
+            background: linear-gradient(90deg, #fff9f9 60%, #ffcdd2 100%);
+            border-radius: 1.1rem;
+            box-shadow: 0 2px 14px #c6282812;
+            padding: 1.3rem 1.1rem;
+            text-align: center;
+            flex: 1 1 220px;
+            min-width: 200px;
+            transition: transform 0.19s, box-shadow 0.19s;
+            opacity: 0;
+            transform: translateY(55px) scale(0.97);
+        }
+        .feature-card-ar.animated {
+            opacity: 1;
+            transform: none;
+        }
+        .feature-card-ar .bi {
+            font-size: 2.1rem;
+            color: #c62828;
+            margin-bottom: .5rem;
+        }
+        .timeline-ar {
+            position: relative;
+            margin: 2.2rem 0 2.6rem 0;
+            padding: 1rem 0 1rem 2rem;
+        }
+        .timeline-ar::before {
+            content: '';
+            position: absolute;
+            left: 25px;
+            top: 0;
+            width: 5px;
+            height: 100%;
+            background: #c62828;
+            border-radius: 2.5px;
+            opacity: 0.13;
+        }
+        .timeline-event-ar {
+            position: relative;
+            margin-bottom: 2.2rem;
+        }
+        .timeline-event-ar:last-child {
+            margin-bottom: 0;
+        }
+        .timeline-dot-ar {
+            position: absolute;
+            left: -4px;
+            top: 0;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: #ff5252;
+            color: #fff;
+            box-shadow: 0 2px 8px #c628281a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+        .timeline-content-ar {
+            margin-left: 40px;
+            background: #fff;
+            border-radius: 0.9rem;
+            box-shadow: 0 2px 12px #c6282812;
+            padding: 1rem 1.3rem;
+        }
+        .app-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.4rem;
+            justify-content: center;
+            margin-bottom: 2.6rem;
+        }
+        .app-card {
+            background: #fff8e1;
+            border-radius: 1.2rem;
+            padding: 1.2rem 1rem;
+            text-align: center;
+            color: #b71c1c;
+            font-weight: 500;
+            box-shadow: 0 2px 14px #c6282811;
+            min-width: 180px;
+            flex: 1 1 180px;
+            opacity: 0;
+            transform: scale(0.93) translateY(40px);
+            transition: opacity 0.8s, transform 0.8s;
+        }
+        .app-card.animated {
+            opacity: 1;
+            transform: none;
+        }
+        .resources-link {
+            text-decoration: none;
+            color: #d32f2f;
+            font-weight: bold;
+            transition: color 0.18s;
+        }
+        .resources-link:hover {
+            color: #ad1111;
+            text-decoration: underline;
+        }
+        .faq-section .accordion-button:not(.collapsed) {
+            background: #ffcdd2;
+            color: #c62828;
+        }
+        .faq-section .accordion-button {
+            transition: background 0.2s, color 0.2s;
+        }
+        .faq-section .accordion-item {
+            border-radius: 0.8rem !important;
+            overflow: hidden;
+            box-shadow: 0 1px 7px #c6282815;
+            margin-bottom: 0.8rem;
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(45px) scale(0.98);
+            transition: opacity 0.8s cubic-bezier(.61,-0.12,.58,1.1), transform 0.8s cubic-bezier(.61,-0.12,.58,1.1);
+        }
+        .fade-in.show {
+            opacity: 1;
+            transform: none;
+        }
+        /* Bootstrap animate.css helpers */
+        .animate__animated { animation-duration: 1.1s; animation-fill-mode: both; }
+        .animate__fadeInUp { animation-name: fadeInUp; }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translate3d(0,100%,0);}
+            to { opacity: 1; transform: none;}
+        }
+        @media (max-width: 600px) {
+            .section-ar, .app-gallery, .feature-row {padding: 1.1rem !important;}
+            .arduino-hero { padding: 2.1rem 0.4rem 1.2rem 0.4rem; }
+            .arduino-hero h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- HERO -->
+    <header class="arduino-hero mb-0">
+        <div class="icon-arduino">
+            <i class="bi bi-cpu"></i>
+        </div>
+        <h1>Arduino</h1>
+        <p class="lead">La plataforma open-source más popular para aprender, prototipar e innovar en electrónica y programación. ¡Crea, experimenta y comparte tus ideas con Arduino!</p>
+        <svg class="waves" viewBox="0 0 1440 62" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill="#fff" d="M0,10 C480,80 960,0 1440,50 L1440,62 L0,62 Z"/></svg>
+    </header>
+
+    <!-- ¿QUÉ ES ARDUINO? -->
+    <section class="container section-ar fade-in">
+        <div class="row align-items-center">
+            <div class="col-md-7">
+                <h2><i class="bi bi-question-circle"></i> ¿Qué es Arduino?</h2>
+                <p>
+                    Arduino es una plataforma electrónica de hardware y software libre basada en una sencilla placa con microcontrolador y un entorno de desarrollo fácil de usar. Permite crear dispositivos interactivos, automatizar tareas y aprender los fundamentos de la programación y la electrónica.
+                </p>
+                <ul>
+                    <li>Fácil de programar y conectar sensores, motores y más.</li>
+                    <li>Gran comunidad, miles de tutoriales y ejemplos.</li>
+                    <li>Ideal para estudiantes, makers, ingenieros y artistas.</li>
+                </ul>
+            </div>
+            <div class="col-md-5 text-center d-none d-md-block animate__animated animate__fadeInUp">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/38/Arduino_Uno_-_R3.jpg" class="img-fluid rounded shadow" alt="Placa Arduino Uno" style="max-height: 210px;">
+            </div>
+        </div>
+    </section>
+
+    <!-- CARDS DE FAMILIAS ARDUINO -->
+    <section class="container fade-in">
+        <h2 class="section-title text-center"><i class="bi bi-diagram-3"></i> Principales placas Arduino</h2>
+        <div class="feature-row" id="featureRow">
+            <div class="feature-card-ar">
+                <i class="bi bi-box"></i>
+                <h5>Arduino Uno</h5>
+                <div>La más popular, ideal para empezar. Basada en ATmega328P, 14 pines digitales, 6 analógicos.</div>
+            </div>
+            <div class="feature-card-ar">
+                <i class="bi bi-wifi"></i>
+                <h5>Arduino Nano</h5>
+                <div>Pequeña y versátil, perfecta para proyectos compactos y wearables.</div>
+            </div>
+            <div class="feature-card-ar">
+                <i class="bi bi-lightning"></i>
+                <h5>Arduino Mega</h5>
+                <div>Más pines y memoria, adecuada para proyectos avanzados y robótica.</div>
+            </div>
+            <div class="feature-card-ar">
+                <i class="bi bi-cloud"></i>
+                <h5>Arduino MKR/IoT</h5>
+                <div>Placas con conectividad WiFi, Bluetooth o LoRa para proyectos de Internet de las Cosas.</div>
+            </div>
+            <div class="feature-card-ar">
+                <i class="bi bi-plug"></i>
+                <h5>Arduino Leonardo</h5>
+                <div>Controladores USB nativos, ideal para emulación de teclado, mouse, etc.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TIMELINE ANIMADA -->
+    <section class="container fade-in">
+        <h2 class="section-title text-center"><i class="bi bi-clock-history"></i> Evolución de Arduino</h2>
+        <div class="timeline-ar" id="timelineAr">
+            <div class="timeline-event-ar">
+                <div class="timeline-dot-ar"><i class="bi bi-calendar2"></i></div>
+                <div class="timeline-content-ar">
+                    <b>2005:</b> Nace Arduino en Italia como proyecto educativo.
+                </div>
+            </div>
+            <div class="timeline-event-ar">
+                <div class="timeline-dot-ar"><i class="bi bi-people"></i></div>
+                <div class="timeline-content-ar">
+                    <b>2008-2010:</b> Se consolida la comunidad global, surgen nuevas placas y shields.
+                </div>
+            </div>
+            <div class="timeline-event-ar">
+                <div class="timeline-dot-ar"><i class="bi bi-wifi"></i></div>
+                <div class="timeline-content-ar">
+                    <b>2015:</b> Aparecen placas IoT (WiFi, Bluetooth) y comienza la integración con la nube.
+                </div>
+            </div>
+            <div class="timeline-event-ar">
+                <div class="timeline-dot-ar"><i class="bi bi-robot"></i></div>
+                <div class="timeline-content-ar">
+                    <b>Actualidad:</b> Arduino impulsa educación, robótica, arte, domótica y prototipado rápido en el mundo.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALERÍA DE APLICACIONES -->
+    <section class="container fade-in">
+        <h2 class="section-title text-center"><i class="bi bi-stars"></i> Aplicaciones creativas</h2>
+        <div class="app-gallery" id="appGallery">
+            <div class="app-card"><i class="bi bi-house"></i><div>Domótica inteligente</div></div>
+            <div class="app-card"><i class="bi bi-robot"></i><div>Robots y vehículos autónomos</div></div>
+            <div class="app-card"><i class="bi bi-lightbulb"></i><div>Arte interactivo y exhibiciones</div></div>
+            <div class="app-card"><i class="bi bi-bar-chart"></i><div>Sensores ambientales y meteorología</div></div>
+            <div class="app-card"><i class="bi bi-bluetooth"></i><div>IoT y soluciones inalámbricas</div></div>
+            <div class="app-card"><i class="bi bi-person-video3"></i><div>Educación y prototipos escolares</div></div>
+        </div>
+    </section>
+
+    <!-- RECURSOS -->
+    <section class="container fade-in mb-5">
+        <h3 class="fw-bold mb-3"><i class="bi bi-link-45deg"></i> Recursos recomendados</h3>
+        <div class="row g-3">
+            <div class="col-12 col-md-6">
+                <a href="https://www.arduino.cc/" target="_blank" class="resources-link">
+                    <i class="bi bi-globe"></i> Sitio oficial Arduino
+                </a>
+            </div>
+            <div class="col-12 col-md-6">
+                <a href="https://www.tinkercad.com/" target="_blank" class="resources-link">
+                    <i class="bi bi-cpu"></i> Tinkercad Circuits (simulador)
+                </a>
+            </div>
+            <div class="col-12 col-md-6">
+                <a href="https://www.youtube.com/results?search_query=arduino+tutorial" target="_blank" class="resources-link">
+                    <i class="bi bi-youtube"></i> Tutoriales en YouTube
+                </a>
+            </div>
+            <div class="col-12 col-md-6">
+                <a href="https://forum.arduino.cc/" target="_blank" class="resources-link">
+                    <i class="bi bi-people"></i> Foro oficial Arduino
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section container mb-5 fade-in">
+        <h3 class="fw-bold mb-3"><i class="bi bi-question-circle"></i> Preguntas frecuentes</h3>
+        <div class="accordion" id="faqAccordion">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="faq1">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse1" aria-expanded="false" aria-controls="faqCollapse1">
+                        ¿Necesito saber electrónica avanzada para usar Arduino?
+                    </button>
+                </h2>
+                <div id="faqCollapse1" class="accordion-collapse collapse" aria-labelledby="faq1" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        No, Arduino está pensado para principiantes. Puedes empezar con proyectos sencillos y avanzar poco a poco. Hay mucha documentación y ejemplos paso a paso.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="faq2">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse2" aria-expanded="false" aria-controls="faqCollapse2">
+                        ¿Se puede programar Arduino sin instalar nada?
+                    </button>
+                </h2>
+                <div id="faqCollapse2" class="accordion-collapse collapse" aria-labelledby="faq2" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Sí, puedes usar el Arduino Web Editor o simuladores como Tinkercad Circuits para programar y simular tus proyectos en línea.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="faq3">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse3" aria-expanded="false" aria-controls="faqCollapse3">
+                        ¿Qué lenguajes puedo usar en Arduino?
+                    </button>
+                </h2>
+                <div id="faqCollapse3" class="accordion-collapse collapse" aria-labelledby="faq3" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        El lenguaje principal es C/C++ usando el IDE de Arduino, aunque existen variantes y librerías para MicroPython, JavaScript (Johnny-Five) y otros.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center py-3 mt-4 bg-white rounded-bottom-4">
+        <span class="text-secondary">© 2025 Arduino | Electrónica creativa y prototipado</span>
+    </footer>
+
+    <!-- Bootstrap JS (with Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Animación JS para cards y galería -->
+    <script>
+    // Fade-in animation on scroll
+    function revealOnScroll() {
+        var reveals = document.querySelectorAll('.fade-in');
+        var windowHeight = window.innerHeight;
+        for (var i = 0; i < reveals.length; i++) {
+            var elementTop = reveals[i].getBoundingClientRect().top;
+            if (elementTop < windowHeight - 60) {
+                reveals[i].classList.add('show');
+            }
+        }
+    }
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('DOMContentLoaded', revealOnScroll);
+
+    // Staggered animation for feature cards
+    function animateFeatureCards() {
+        var cards = document.querySelectorAll('.feature-card-ar');
+        cards.forEach(function(card, i){
+            setTimeout(function(){
+                card.classList.add('animated');
+            }, 180 + i * 150);
+        });
+    }
+    window.addEventListener('DOMContentLoaded', animateFeatureCards);
+
+    // Staggered animation for app cards
+    function animateAppGallery() {
+        var apps = document.querySelectorAll('.app-card');
+        apps.forEach(function(card, i){
+            setTimeout(function(){
+                card.classList.add('animated');
+            }, 200 + i * 160);
+        });
+    }
+    window.addEventListener('DOMContentLoaded', animateAppGallery);
+
+    // Animate timeline events on scroll
+    function animateTimeline() {
+        var events = document.querySelectorAll('.timeline-event-ar');
+        var windowHeight = window.innerHeight;
+        events.forEach(function(ev, i){
+            var elementTop = ev.getBoundingClientRect().top;
+            if (elementTop < windowHeight - 90) {
+                setTimeout(function(){
+                    ev.classList.add('animate__animated','animate__fadeInUp');
+                }, i * 170);
+            }
+        });
+    }
+    window.addEventListener('scroll', animateTimeline);
+    window.addEventListener('DOMContentLoaded', animateTimeline);
+    </script>
+</body>
+</html>

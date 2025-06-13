@@ -425,3 +425,14 @@ ul {
         grid-template-columns: repeat(3, 1fr);
     }
 }
+
+
+.logo-rojo {
+    color: #c62828 !important; /* Rojo intenso, puedes usar #ff5252 para un rojo más claro */
+    font-weight: bold;
+    text-decoration: none;
+}
+.logo-rojo:hover {
+    color: #ff5252 !important;
+    text-decoration: underline;
+}
