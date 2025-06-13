@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sintaxis del Lenguaje Ensamblador</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <header class="header">
         <div class="container header-container">
@@ -17,11 +19,13 @@
             <h2>Sintaxis del Lenguaje Ensamblador</h2>
             <article>
                 <h3>¿Cómo usar el Lenguaje Ensamblador?</h3>
-                <p>El lenguaje ensamblador utiliza instrucciones específicas del procesador, cada una con una sintaxis particular. Un programa típico se compone de etiquetas, instrucciones y comentarios.</p>
+                <p>El lenguaje ensamblador utiliza instrucciones específicas del procesador, cada una con una sintaxis
+                    particular. Un programa típico se compone de etiquetas, instrucciones y comentarios.</p>
                 <ul>
                     <li><strong>Etiquetas:</strong> Identifican posiciones en el código para saltos o referencias.</li>
                     <li><strong>Instrucciones:</strong> Operaciones como MOV, ADD, SUB, JMP, etc.</li>
-                    <li><strong>Comentarios:</strong> Se escriben con punto y coma <code>;</code> y no afectan la ejecución.</li>
+                    <li><strong>Comentarios:</strong> Se escriben con punto y coma <code>;</code> y no afectan la
+                        ejecución.</li>
                 </ul>
                 <h4>Tipos de datos</h4>
                 <ul>
@@ -31,28 +35,72 @@
                 </ul>
                 <h4>Instrucciones comunes</h4>
                 <div style="overflow-x:auto; margin-bottom:1.5rem;">
-                <table class="asm-table">
-                    <thead>
-                        <tr>
-                            <th>Instrucción</th>
-                            <th>Significado</th>
-                            <th>Ejemplo</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td><code>mov</code></td><td>Mover datos</td><td><code>mov eax, 1</code></td></tr>
-                        <tr><td><code>add</code></td><td>Sumar</td><td><code>add eax, ebx</code></td></tr>
-                        <tr><td><code>sub</code></td><td>Restar</td><td><code>sub ecx, 2</code></td></tr>
-                        <tr><td><code>mul</code></td><td>Multiplicación sin signo</td><td><code>mul ebx</code></td></tr>
-                        <tr><td><code>div</code></td><td>División sin signo</td><td><code>div ecx</code></td></tr>
-                        <tr><td><code>cmp</code></td><td>Comparar dos valores</td><td><code>cmp eax, 5</code></td></tr>
-                        <tr><td><code>jmp</code></td><td>Salto incondicional</td><td><code>jmp fin</code></td></tr>
-                        <tr><td><code>je</code> / <code>jne</code></td><td>Salto si igual / si no es igual</td><td><code>je etiqueta</code></td></tr>
-                        <tr><td><code>push</code></td><td>Poner en la pila</td><td><code>push eax</code></td></tr>
-                        <tr><td><code>pop</code></td><td>Sacar de la pila</td><td><code>pop ebx</code></td></tr>
-                        <tr><td><code>int</code></td><td>Llamada a interrupción (ej. sistema)</td><td><code>int 0x80</code></td></tr>
-                    </tbody>
-                </table>
+                    <table class="asm-table">
+                        <thead>
+                            <tr>
+                                <th>Instrucción</th>
+                                <th>Significado</th>
+                                <th>Ejemplo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>mov</code></td>
+                                <td>Mover datos</td>
+                                <td><code>mov eax, 1</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>add</code></td>
+                                <td>Sumar</td>
+                                <td><code>add eax, ebx</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>sub</code></td>
+                                <td>Restar</td>
+                                <td><code>sub ecx, 2</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>mul</code></td>
+                                <td>Multiplicación sin signo</td>
+                                <td><code>mul ebx</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>div</code></td>
+                                <td>División sin signo</td>
+                                <td><code>div ecx</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>cmp</code></td>
+                                <td>Comparar dos valores</td>
+                                <td><code>cmp eax, 5</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>jmp</code></td>
+                                <td>Salto incondicional</td>
+                                <td><code>jmp fin</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>je</code> / <code>jne</code></td>
+                                <td>Salto si igual / si no es igual</td>
+                                <td><code>je etiqueta</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>push</code></td>
+                                <td>Poner en la pila</td>
+                                <td><code>push eax</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>pop</code></td>
+                                <td>Sacar de la pila</td>
+                                <td><code>pop ebx</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>int</code></td>
+                                <td>Llamada a interrupción (ej. sistema)</td>
+                                <td><code>int 0x80</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
                 <h4>Ejemplo básico</h4>
                 <pre><code>section .data
@@ -64,11 +112,13 @@ section .text
 </code></pre>
                 <p>Este ejemplo muestra la estructura básica de un programa en ensamblador para x86.</p>
                 <div style="text-align:center; margin: 2rem 0;">
-                    <img src="images/codigoensamblador.png" alt="Código ensamblador" style="max-width:340px; width:100%; border-radius:0.5rem; box-shadow:0 2px 8px rgba(0,0,0,0.07);">
+                    <img src="images/codigoensamblador.png" alt="Código ensamblador"
+                        style="max-width:340px; width:100%; border-radius:0.5rem; box-shadow:0 2px 8px rgba(0,0,0,0.07);">
                     <div style="color:#6b7280; font-size:0.98em; margin-top:0.5rem;">Ejemplo de código ensamblador</div>
                 </div>
             </article>
         </section>
     </main>
 </body>
+
 </html>

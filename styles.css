@@ -369,20 +369,25 @@ ul {
     overflow: hidden;
     font-size: 1rem;
 }
-.asm-table th, .asm-table td {
+
+.asm-table th,
+.asm-table td {
     padding: 0.75rem 1rem;
     border: 1px solid var(--gray-200);
     text-align: left;
 }
+
 .asm-table th {
     background: var(--gray-100);
     color: var(--red-700);
     font-weight: 600;
     letter-spacing: 0.5px;
 }
+
 .asm-table tr:nth-child(even) {
     background: var(--gray-50);
 }
+
 .asm-table code {
     background: var(--gray-100);
     color: var(--red-800);
@@ -390,8 +395,11 @@ ul {
     border-radius: 4px;
     font-size: 0.98em;
 }
+
 @media (max-width: 600px) {
-    .asm-table th, .asm-table td {
+
+    .asm-table th,
+    .asm-table td {
         padding: 0.5rem 0.3rem;
         font-size: 0.95em;
     }
@@ -402,19 +410,19 @@ ul {
     .desktop-menu {
         display: flex;
     }
-    
+
     .mobile-menu-btn {
         display: none;
     }
-    
+
     .hero h1 {
         font-size: 3rem;
     }
-    
+
     .cards-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-    
+
     .footer-grid {
         grid-template-columns: repeat(3, 1fr);
     }
@@ -428,10 +436,12 @@ ul {
 
 
 .logo-rojo {
-    color: #c62828 !important; /* Rojo intenso, puedes usar #ff5252 para un rojo más claro */
+    color: #c62828 !important;
+    /* Rojo intenso, puedes usar #ff5252 para un rojo más claro */
     font-weight: bold;
     text-decoration: none;
 }
+
 .logo-rojo:hover {
     color: #ff5252 !important;
     text-decoration: underline;
