@@ -285,10 +285,18 @@ ul {
     padding: 1.25rem 1.25rem 0.5rem;
 }
 
-.card-header h3 {
-    font-size: 1.25rem;
+.card-header h3, .card-header h3 a.card-title-link {
     color: var(--red-700);
-    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+    transition: color 0.2s;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.card-header h3 a.card-title-link:hover {
+    color: var(--red-500);
+    text-decoration: underline;
 }
 
 .card-content {
@@ -445,4 +453,40 @@ ul {
 .logo-rojo:hover {
     color: #ff5252 !important;
     text-decoration: underline;
+}
+
+/* Hero especial para la página de sintaxis ensamblador */
+.hero-sintaxis {
+    background: linear-gradient(120deg, var(--red-700) 60%, var(--gray-100) 100%);
+    color: var(--white);
+    padding: 3.5rem 0 2.5rem 0;
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.hero-sintaxis .hero-content h1 {
+    color: var(--white);
+    font-size: 2.3rem;
+    font-weight: 700;
+    margin-bottom: 0.7rem;
+}
+
+.hero-sintaxis .hero-content p {
+    color: var(--gray-50);
+    font-size: 1.2rem;
+    max-width: 600px;
+}
+
+.hero-sintaxis .hero-overlay {
+    display: none;
+}
+
+@media (max-width: 600px) {
+    .hero-sintaxis {
+        padding: 2rem 0 1.5rem 0;
+    }
+
+    .hero-sintaxis .hero-content h1 {
+        font-size: 1.3rem;
+    }
 }
