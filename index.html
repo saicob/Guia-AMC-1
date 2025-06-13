@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduTec Electrónica - Educación Digital</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header id="header" class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">EduTec Electrónica</a>
+            <nav class="desktop-menu">
+                <a href="#ensamblador" class="nav-link">Lenguaje Ensamblador</a>
+                <a href="timeline.html" class="nav-link">Microprocesadores</a>
+                <a href="#microcontroladores" class="nav-link">Microcontroladores</a>
+            </nav>
+            <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Menú de navegación">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="4" x2="20" y1="12" y2="12"></line>
+                    <line x1="4" x2="20" y1="6" y2="6"></line>
+                    <line x1="4" x2="20" y1="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="mobile-menu">
+            <a href="#ensamblador" class="mobile-nav-link">Lenguaje Ensamblador</a>
+            <a href="#microprocesadores" class="mobile-nav-link">Microprocesadores</a>
+            <a href="#microcontroladores" class="mobile-nav-link">Microcontroladores</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <h1>Educación Digital en Electrónica</h1>
+            <p>Aprende sobre lenguaje ensamblador, microprocesadores y microcontroladores con nuestros recursos educativos.</p>
+            <a href="#ensamblador" class="btn">Explorar contenido</a>
+        </div>
+    </section>
+
+    <main class="container main-content">
+        <!-- Lenguaje Ensamblador Section -->
+        <section id="ensamblador" class="category-section">
+            <h2>Lenguaje Ensamblador</h2>
+            <div class="cards-grid">
+                <div class="card" data-aos="fade-up">
+                    <div class="card-image">
+                        <img src="images/codigo.png" alt="Código ensamblador">
+                    </div>
+                    <div class="card-header">
+                        <h3>¿Qué es el Lenguaje Ensamblador?</h3>
+                    </div>
+                    <div class="card-content">
+                        <p>Lenguaje de bajo nivel que permite programar directamente al hardware, utilizando instrucciones específicas del procesador.</p>
+                    </div>
+                </div>
+                <div class="card" data-aos="fade-up">
+                    <div class="card-image">
+                        <img src="images/depurador.jpg" alt="Depurador ensamblador">
+                    </div>
+                    <div class="card-header">
+                        <h3>Ejemplo en x86</h3>
+                    </div>
+                    <div class="card-content">
+                        <p>Un ejemplo típico de código ensamblador para arquitectura x86 con instrucciones como MOV, ADD y JMP.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Microprocesadores Section -->
+        <section id="microprocesadores" class="category-section">
+            <h2>Microprocesadores</h2>
+            <div class="cards-grid">
+                <div class="card" data-aos="fade-up">
+                    <div class="card-image">
+                        <img src="images/inteli7.jpg" alt="Microprocesador Intel">
+                    </div>
+                    <div class="card-header">
+                        <h3>Intel Core i7</h3>
+                    </div>
+                    <div class="card-content">
+                        <p>Un potente microprocesador usado en computadoras modernas para tareas generales y alto rendimiento.</p>
+                    </div>
+                </div>
+                <div class="card" data-aos="fade-up">
+                    <div class="card-image">
+                        <img src="images/amd.jpg" alt="Microprocesador AMD">
+                    </div>
+                    <div class="card-header">
+                        <h3>AMD Ryzen</h3>
+                    </div>
+                    <div class="card-content">
+                        <p>Procesador de múltiples núcleos ideal para juegos, diseño gráfico y software exigente.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Microcontroladores Section -->
+        <section id="microcontroladores" class="category-section">
+            <h2>Microcontroladores</h2>
+            <div class="cards-grid">
+                <div class="card" data-aos="fade-up">
+                    <div class="card-image">
+                        <img src="images/micro.jpg" alt="Microcontrolador PIC">
+                    </div>
+                    <div class="card-header">
+                        <h3>PIC18F46K22</h3>
+                    </div>
+                    <div class="card-content">
+                        <p>Usado en proyectos embebidos, con memoria interna, puertos analógicos y digitales.</p>
+                    </div>
+                </div>
+                <div class="card" data-aos="fade-up">
+                    <div class="card-image">
+                        <img src="images/arduino.jpg" alt="Arduino Uno">
+                    </div>
+                    <div class="card-header">
+                        <h3>Arduino Uno</h3>
+                    </div>
+                    <div class="card-content">
+                        <p>Placa de desarrollo basada en el microcontrolador ATmega328, ideal para aprender y prototipar.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>EduTec Electrónica</h3>
+                    <p>Plataforma educativa dedicada a la enseñanza de electrónica, microprocesadores y lenguaje ensamblador.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Enlaces rápidos</h3>
+                    <ul>
+                        <li><a href="#ensamblador">Lenguaje Ensamblador</a></li>
+                        <li><a href="#microprocesadores">Microprocesadores</a></li>
+                        <li><a href="#microcontroladores">Microcontroladores</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contacto</h3>
+                    <p>¿Tienes preguntas o sugerencias? No dudes en contactarnos.</p>
+                    <a href="mailto:contacto@edutec.com" class="btn">Contáctanos</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year"></span> EduTec - Contenido Educativo</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
