@@ -115,12 +115,26 @@
                     </table>
                 </div>
                 <h4>Ejemplo básico</h4>
-                <pre><code>section .data
-    mensaje db 'Hello World',0
-section .text
-    mov eax, 1
-    mov ebx, 0
-    int 0x80
+                <pre><code>org 0x100 ; Comienzo típico de programas COM (MS-DOS)
+                
+                section .text
+                start:
+                mov si, mensaje ; Puntero al mensaje
+                imprime:
+                lodsb ; Cargar siguiente byte de mensaje en AL
+                or al, al ; ¿Es el final del string (0)?
+                jz fin ; Si sí, salir
+                mov ah, 0x0E ; Función: imprimir caracter en TTY
+                int 0x10 ; Llamada BIOS
+                jmp imprime ; Repetir
+                
+                fin:
+                mov ax, 0x4C00 ; Terminar programa correctamente
+                int 0x21
+                
+                section .data
+                mensaje db 'Hello World', 0
+                    
 </code></pre>
                 <p>Este ejemplo muestra la estructura básica de un programa en ensamblador para x86.</p>
                 <div style="text-align:center; margin: 2rem 0;">
@@ -131,6 +145,34 @@ section .text
             </article>
         </section>
     </main>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>Guia AMC 1</h3>
+                    <p>Plataforma educativa dedicada a la enseñanza de electrónica, microprocesadores y lenguaje ensamblador.
+                    </p>
+                </div>
+                <div class="footer-column">
+                    <h3>Enlaces rápidos</h3>
+                    <ul>
+                        <li><a href="index.html#ensamblador">Lenguaje Ensamblador</a></li>
+                        <li><a href="index.html#microprocesadores">Microprocesadores</a></li>
+                        <li><a href="index.html#microcontroladores">Microcontroladores</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contacto</h3>
+                    <p>¿Tienes preguntas o sugerencias? No dudes en contactarnos.</p>
+                    <a href="mailto:saicobi15@gmail.com" class="btn">Contáctanos</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year"></span> Guia AMC 1 - Contenido Educativo</p>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
 </body>
 
 </html>
